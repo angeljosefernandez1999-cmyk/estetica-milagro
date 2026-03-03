@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienestar y Belleza Milagro</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins;background:#fff;color:#333;line-height:1.6}
+
+/* HERO */
+.hero{
+position:relative;
+height:90vh;
+background:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,rgba(255,79,163,0.85),rgba(179,0,110,0.85));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+padding:20px;
+}
+
+.hero h1{
+font-family:"Playfair Display";
+font-size:52px;
+margin-bottom:20px;
+}
+
+.hero p{font-size:20px;margin-bottom:30px}
+
+.btn{
+display:inline-block;
+background:white;
+color:#b3006e;
+padding:15px 35px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{background:#ffe6f2}
+
+section{padding:80px 20px;max-width:1200px;margin:auto}
+
+h2{
+text-align:center;
+font-family:"Playfair Display";
+font-size:36px;
+margin-bottom:50px;
+color:#b3006e
+}
+
+/* SERVICIOS */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+transition:0.4s;
+}
+
+.card:hover{transform:translateY(-8px)}
+
+.card img{width:100%;height:200px;object-fit:cover}
+
+.card-content{padding:25px}
+
+.card h3{color:#b3006e;margin-bottom:10px}
+.price{font-weight:600;margin-top:10px;font-size:18px}
+
+/* SOBRE NOSOTROS */
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1)
+}
+
+/* TESTIMONIOS */
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:#fff0f6;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05)
+}
+
+.testimonial p{font-style:italic;margin-bottom:15px}
+
+/* RESERVA */
+.cta{
+background:linear-gradient(135deg,#ff4fa3,#b3006e);
+color:white;
+text-align:center;
+border-radius:25px;
+padding:70px 20px;
+}
+
+.cta h2{color:white;margin-bottom:20px}
+
+/* FOOTER */
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:40px 20px;
+margin-top:60px
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+box-shadow:0 8px 25px rgba(0,0,0,0.3)
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-content">
+<h1>Bienestar y Belleza Milagro</h1>
+<p>Tratamientos estéticos profesionales para cuidar, rejuvenecer y transformar tu piel.</p>
+<a href="#reserva" class="btn">Reservar Cita</a>
+</div>
+</div>
+
+<!-- SERVICIOS -->
+<section>
+<h2>Nuestros Tratamientos</h2>
+<div class="services">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9">
+<div class="card-content">
+<h3>Peelings químicos + LED</h3>
+<p>Renovación celular profunda y mejora de textura.</p>
+<div class="price">35€</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15">
+<div class="card-content">
+<h3>Limpieza facial profunda + LED</h3>
+<p>Elimina impurezas y devuelve luminosidad.</p>
+<div class="price">30€</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273">
+<div class="card-content">
+<h3>Microneedling</h3>
+<p>Estimula colágeno y mejora cicatrices.</p>
+<div class="price">40€</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371">
+<div class="card-content">
+<h3>Tratamiento para acné</h3>
+<p>Reduce inflamación y marcas.</p>
+<div class="price">35€</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250">
+<div class="card-content">
+<h3>Microdermoabrasión + LED</h3>
+<p>Exfoliación avanzada para piel suave.</p>
+<div class="price">30€</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1588776814546-ec7e4a6d9f14">
+<div class="card-content">
+<h3>Fototerapia LED</h3>
+<p>Terapia de luz regenerativa.</p>
+<div class="price">25€</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section>
+<h2>Sobre Nosotros</h2>
+<div class="about">
+<div>
+<p>En Bienestar y Belleza Milagro trabajamos con tecnología estética avanzada y protocolos personalizados para cada tipo de piel. Nuestro objetivo es ofrecer resultados visibles en un ambiente profesional, limpio y relajante.</p>
+<p>Pregunta por nuestros descuentos y ofertas especiales.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
+</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section>
+<h2>Opiniones de Clientes</h2>
+<div class="testimonials">
+<div class="testimonial">
+<p>"Mi piel cambió completamente después del tratamiento. Profesionalidad y resultados increíbles."</p>
+<strong>★★★★★</strong>
+</div>
+<div class="testimonial">
+<p>"Ambiente muy limpio y atención excelente. Recomiendo totalmente."</p>
+<strong>★★★★★</strong>
+</div>
+<div class="testimonial">
+<p>"El mejor centro estético. Volveré sin duda."</p>
+<strong>★★★★★</strong>
+</div>
+</div>
+</section>
+
+<!-- RESERVA -->
+<section id="reserva">
+<div class="cta">
+<h2>Reserva tu cita hoy</h2>
+<p>Contáctanos por WhatsApp y asegura tu tratamiento.</p>
+<a href="https://wa.me/" class="btn">Reservar por WhatsApp</a>
+</div>
+</section>
+
+<footer>
+<p>Bienestar y Belleza Milagro © 2025 | Centro de Estética Profesional</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/">WhatsApp</a>
+
+</body>
+</html>
