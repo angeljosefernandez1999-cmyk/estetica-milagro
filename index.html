@@ -1,280 +1,659 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bienestar y Belleza Milagro</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienestar y Belleza Milagro</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Poppins;background:#fff;color:#333;line-height:1.6}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-/* HERO */
-.hero{
-position:relative;
-height:90vh;
-background:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881') center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
+  <link rel="icon" type="image/png" href="img/logo.png" />
 
-.hero::after{
-content:"";
-position:absolute;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(135deg,rgba(255,79,163,0.85),rgba(179,0,110,0.85));
-}
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --brand:#b3006e;
+      --brand2:#ff4fa3;
+      --soft:#fff4fa;
+      --card:#ffffff;
+      --line:rgba(17,24,39,.08);
+      --shadow:0 18px 45px rgba(17,24,39,.08);
+      --radius:18px;
+      --max:1120px;
+    }
 
-.hero-content{
-position:relative;
-z-index:2;
-max-width:800px;
-padding:20px;
-}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:auto;padding:0 20px}
+    section{padding:64px 0}
+    section[id]{scroll-margin-top:90px}
 
-.hero h1{
-font-family:"Playfair Display";
-font-size:52px;
-margin-bottom:20px;
-}
+    /* HEADER */
+    .header{
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px; padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+      min-width:240px;
+    }
+    .brand img{width:46px;height:46px;object-fit:contain}
+    .brand .name{display:flex;flex-direction:column;line-height:1.1}
+    .brand .name strong{
+      font-family:"Playfair Display",serif;
+      font-size:18px; letter-spacing:.2px;
+      color:var(--brand);
+    }
+    .brand .name span{font-size:12px;color:var(--muted)}
+    .nav{
+      display:flex; align-items:center; gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      font-weight:500;
+      color:rgba(17,24,39,.9);
+      padding:10px 12px;
+      border-radius:14px;
+      transition:.2s;
+    }
+    .nav a:hover{background:rgba(179,0,110,.08); color:var(--brand)}
+    .nav .cta{
+      background:linear-gradient(135deg,var(--brand2),var(--brand));
+      color:#fff;
+      padding:10px 14px;
+    }
+    .nav .cta:hover{filter:brightness(.98)}
 
-.hero p{font-size:20px;margin-bottom:30px}
+    /* HERO */
+    .hero{
+      padding:70px 0 40px;
+      background:
+        radial-gradient(900px 420px at 15% 5%, rgba(255,79,163,.16), transparent 60%),
+        radial-gradient(800px 380px at 85% 10%, rgba(179,0,110,.14), transparent 55%),
+        linear-gradient(180deg, rgba(255,244,250,1) 0%, rgba(255,255,255,1) 55%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:34px;
+      align-items:center;
+      padding:10px 0 20px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      color:var(--brand);
+      font-weight:600;
+      width:fit-content;
+      box-shadow:0 10px 25px rgba(17,24,39,.05);
+    }
+    .kicker .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg,var(--brand2),var(--brand));
+    }
+    .hero h1{
+      font-family:"Playfair Display",serif;
+      font-size:52px;
+      line-height:1.05;
+      margin:16px 0 14px;
+      letter-spacing:.2px;
+    }
+    .hero p{
+      color:var(--muted);
+      font-size:18px;
+      margin-bottom:22px;
+      max-width:52ch;
+    }
+    .btn-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:600;
+      border:1px solid var(--line);
+      background:#fff;
+      transition:.2s;
+    }
+    .btn.primary{
+      border:none;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand2),var(--brand));
+      box-shadow:0 16px 40px rgba(179,0,110,.22);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary:hover{filter:brightness(.98)}
+    .stats{display:flex; gap:22px; margin-top:22px; flex-wrap:wrap}
+    .stat{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 14px;
+      box-shadow:0 10px 25px rgba(17,24,39,.05);
+    }
+    .stat strong{display:block;color:var(--brand);font-size:16px}
+    .stat span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
 
-.btn{
-display:inline-block;
-background:white;
-color:#b3006e;
-padding:15px 35px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
+    .hero-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .hero-card img{width:100%; height:320px; object-fit:cover}
+    .hero-card .pad{padding:16px 16px 18px}
+    .hero-card .pad strong{display:block;color:var(--text)}
+    .hero-card .pad span{color:var(--muted);font-size:13px}
 
-.btn:hover{background:#ffe6f2}
+    /* TITLES */
+    .section-title{text-align:center;margin-bottom:26px}
+    .section-title h2{
+      font-family:"Playfair Display",serif;
+      font-size:36px;
+      color:var(--brand);
+      margin-bottom:10px;
+    }
+    .section-title p{color:var(--muted);max-width:70ch;margin:0 auto}
 
-section{padding:80px 20px;max-width:1200px;margin:auto}
+    /* SERVICES */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(17,24,39,.06);
+      transition:.25s;
+    }
+    .card:hover{transform:translateY(-4px)}
+    .card img{width:100%; height:190px; object-fit:cover}
+    .card .content{padding:16px}
+    .card h3{color:var(--text); font-size:16px; margin-bottom:6px}
+    .card p{color:var(--muted); font-size:14px}
+    .meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    .price{color:var(--brand);font-weight:700}
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(179,0,110,.18);
+      color:var(--brand);
+      background:rgba(179,0,110,.06);
+      font-weight:600;
+    }
 
-h2{
-text-align:center;
-font-family:"Playfair Display";
-font-size:36px;
-margin-bottom:50px;
-color:#b3006e
-}
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin-top:22px}
+    .about .box{
+      background:var(--soft);
+      border:1px solid rgba(179,0,110,.10);
+      border-radius:24px;
+      padding:22px;
+    }
+    .about .box p{color:rgba(17,24,39,.85)}
+    .about .photo{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .about .photo img{height:360px; object-fit:cover; width:100%}
 
-/* SERVICIOS */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-}
+    /* TESTIMONIALS + GOOGLE REVIEWS LOOK */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .quote{
+      border-radius:24px;
+      border:1px solid var(--line);
+      padding:18px;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(17,24,39,.06);
+    }
+    .quote p{color:rgba(17,24,39,.86); font-style:italic}
+    .quote strong{display:block;margin-top:12px;color:var(--brand)}
 
-.card{
-background:white;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,0.08);
-transition:0.4s;
-}
+    .reviews-bar{
+      margin-top:18px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:stretch;
+      justify-content:center;
+    }
+    .reviews-widget{
+      min-width:280px;
+      max-width:520px;
+      flex:1;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:#fff;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(17,24,39,.06);
+    }
+    .reviews-widget .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .g-badge{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+    }
+    .g-dot{
+      width:34px;height:34px;border-radius:12px;
+      background:linear-gradient(135deg,var(--brand2),var(--brand));
+    }
+    .stars{
+      letter-spacing:2px;
+      color:#f59e0b;
+      font-size:16px;
+      user-select:none;
+    }
+    .reviews-widget p{color:var(--muted);font-size:14px}
+    .reviews-widget .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
 
-.card:hover{transform:translateY(-8px)}
+    /* VISIT */
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+    .panel{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:#fff;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(17,24,39,.06);
+    }
+    .panel h3{color:var(--text); margin-bottom:8px}
+    .panel p{color:var(--muted)}
+    .list{margin-top:10px; display:grid; gap:8px}
+    .li{display:flex; gap:10px; align-items:flex-start; color:rgba(17,24,39,.85); font-size:14px}
+    .li b{color:var(--brand)}
+    iframe{width:100%; height:320px; border:0; border-radius:18px}
 
-.card img{width:100%;height:200px;object-fit:cover}
+    .cta-block{
+      margin-top:16px;
+      border-radius:28px;
+      padding:24px 18px;
+      background:linear-gradient(135deg,var(--brand2),var(--brand));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .cta-block h3{font-size:20px}
+    .cta-block p{opacity:.95}
+    .cta-block .btn{
+      background:#fff;
+      border:none;
+      color:var(--brand);
+      box-shadow:0 16px 40px rgba(0,0,0,.18);
+    }
 
-.card-content{padding:25px}
+    /* FOOTER + WA */
+    footer{
+      padding:32px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      background:#fff;
+    }
+    .wa-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      text-decoration:none;
+      background:#25D366;
+      color:#fff;
+      padding:12px 14px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:0 16px 38px rgba(0,0,0,.22);
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      z-index:60;
+    }
 
-.card h3{color:#b3006e;margin-bottom:10px}
-.price{font-weight:600;margin-top:10px;font-size:18px}
-
-/* SOBRE NOSOTROS */
-.about{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:40px;
-align-items:center;
-}
-
-.about img{
-width:100%;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1)
-}
-
-/* TESTIMONIOS */
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.testimonial{
-background:#fff0f6;
-padding:30px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.05)
-}
-
-.testimonial p{font-style:italic;margin-bottom:15px}
-
-/* RESERVA */
-.cta{
-background:linear-gradient(135deg,#ff4fa3,#b3006e);
-color:white;
-text-align:center;
-border-radius:25px;
-padding:70px 20px;
-}
-
-.cta h2{color:white;margin-bottom:20px}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px 20px;
-margin-top:60px
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-font-weight:600;
-text-decoration:none;
-box-shadow:0 8px 25px rgba(0,0,0,0.3)
-}
-
-</style>
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero h1{font-size:44px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .two{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    @media (max-width: 520px){
+      .hero h1{font-size:38px}
+      .grid{grid-template-columns:1fr}
+      .nav a{padding:9px 10px}
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<div class="hero">
-<div class="hero-content">
-<h1>Bienestar y Belleza Milagro</h1>
-<p>Tratamientos estéticos profesionales para cuidar, rejuvenecer y transformar tu piel.</p>
-<a href="#reserva" class="btn">Reservar Cita</a>
-</div>
-</div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio">
+        <img src="img/logo.png" alt="Logo Bienestar y Belleza Milagro">
+        <div class="name">
+          <strong>Milagro</strong>
+          <span>Bienestar & Belleza</span>
+        </div>
+      </a>
 
-<!-- SERVICIOS -->
-<section>
-<h2>Nuestros Tratamientos</h2>
-<div class="services">
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#opiniones">Opiniones</a>
+        <a href="#visitanos">Visítanos</a>
+        <a class="cta" href="#contacto">Contactar</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9">
-<div class="card-content">
-<h3>Peelings químicos + LED</h3>
-<p>Renovación celular profunda y mejora de textura.</p>
-<div class="price">35€</div>
-</div>
-</div>
+  <!-- HERO -->
+  <main id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span> Estética avanzada · Resultados reales</div>
+        <h1>Bienestar y Belleza Milagro</h1>
+        <p>Tratamientos estéticos profesionales para cuidar, rejuvenecer y transformar tu piel, con un enfoque personalizado y un ambiente relajante.</p>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15">
-<div class="card-content">
-<h3>Limpieza facial profunda + LED</h3>
-<p>Elimina impurezas y devuelve luminosidad.</p>
-<div class="price">30€</div>
-</div>
-</div>
+        <div class="btn-row">
+          <a class="btn primary" href="#contacto">Reservar cita</a>
+          <a class="btn" href="#servicios">Ver tratamientos</a>
+          <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">⭐ Dejar reseña</a>
+        </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273">
-<div class="card-content">
-<h3>Microneedling</h3>
-<p>Estimula colágeno y mejora cicatrices.</p>
-<div class="price">40€</div>
-</div>
-</div>
+        <div class="stats">
+          <div class="stat"><strong>Protocolos</strong><span>Adaptados a tu piel</span></div>
+          <div class="stat"><strong>Higiene</strong><span>Espacio limpio y seguro</span></div>
+          <div class="stat"><strong>Resultados</strong><span>Visibles y duraderos</span></div>
+        </div>
+      </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371">
-<div class="card-content">
-<h3>Tratamiento para acné</h3>
-<p>Reduce inflamación y marcas.</p>
-<div class="price">35€</div>
-</div>
-</div>
+      <div class="hero-card" aria-label="Imagen de cabecera">
+        <img
+          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1400&q=80"
+          alt="Cabina estética"
+          loading="lazy"
+        />
+        <div class="pad">
+          <strong>Tu mejor versión empieza aquí</strong>
+          <span>Reserva por WhatsApp y te asesoramos sin compromiso.</span>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250">
-<div class="card-content">
-<h3>Microdermoabrasión + LED</h3>
-<p>Exfoliación avanzada para piel suave.</p>
-<div class="price">30€</div>
-</div>
-</div>
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-title">
+        <h2>Servicios</h2>
+        <p>Tratamientos faciales y corporales pensados para realzar tu belleza con técnicas actuales y cuidado profesional.</p>
+      </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e4a6d9f14">
-<div class="card-content">
-<h3>Fototerapia LED</h3>
-<p>Terapia de luz regenerativa.</p>
-<div class="price">25€</div>
-</div>
-</div>
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=80" alt="Peelings químicos" loading="lazy">
+          <div class="content">
+            <h3>Peelings químicos + LED</h3>
+            <p>Renovación celular profunda y mejora de textura.</p>
+            <div class="meta">
+              <span class="price">35€</span>
+              <span class="pill">Facial</span>
+            </div>
+          </div>
+        </article>
 
-</div>
-</section>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80" alt="Limpieza facial" loading="lazy">
+          <div class="content">
+            <h3>Limpieza facial profunda + LED</h3>
+            <p>Elimina impurezas y devuelve luminosidad.</p>
+            <div class="meta">
+              <span class="price">30€</span>
+              <span class="pill">Facial</span>
+            </div>
+          </div>
+        </article>
 
-<!-- SOBRE NOSOTROS -->
-<section>
-<h2>Sobre Nosotros</h2>
-<div class="about">
-<div>
-<p>En Bienestar y Belleza Milagro trabajamos con tecnología estética avanzada y protocolos personalizados para cada tipo de piel. Nuestro objetivo es ofrecer resultados visibles en un ambiente profesional, limpio y relajante.</p>
-<p>Pregunta por nuestros descuentos y ofertas especiales.</p>
-</div>
-<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f">
-</div>
-</section>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=1200&q=80" alt="Microneedling" loading="lazy">
+          <div class="content">
+            <h3>Microneedling</h3>
+            <p>Estimula colágeno y mejora cicatrices.</p>
+            <div class="meta">
+              <span class="price">40€</span>
+              <span class="pill">Facial</span>
+            </div>
+          </div>
+        </article>
 
-<!-- TESTIMONIOS -->
-<section>
-<h2>Opiniones de Clientes</h2>
-<div class="testimonials">
-<div class="testimonial">
-<p>"Mi piel cambió completamente después del tratamiento. Profesionalidad y resultados increíbles."</p>
-<strong>★★★★★</strong>
-</div>
-<div class="testimonial">
-<p>"Ambiente muy limpio y atención excelente. Recomiendo totalmente."</p>
-<strong>★★★★★</strong>
-</div>
-<div class="testimonial">
-<p>"El mejor centro estético. Volveré sin duda."</p>
-<strong>★★★★★</strong>
-</div>
-</div>
-</section>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento para acné" loading="lazy">
+          <div class="content">
+            <h3>Tratamiento para acné</h3>
+            <p>Reduce inflamación y marcas.</p>
+            <div class="meta">
+              <span class="price">35€</span>
+              <span class="pill">Facial</span>
+            </div>
+          </div>
+        </article>
 
-<!-- RESERVA -->
-<section id="reserva">
-<div class="cta">
-<h2>Reserva tu cita hoy</h2>
-<p>Contáctanos por WhatsApp y asegura tu tratamiento.</p>
-<a href="https://wa.me/" class="btn">Reservar por WhatsApp</a>
-</div>
-</section>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1200&q=80" alt="Microdermoabrasión" loading="lazy">
+          <div class="content">
+            <h3>Microdermoabrasión + LED</h3>
+            <p>Exfoliación avanzada para piel suave.</p>
+            <div class="meta">
+              <span class="price">30€</span>
+              <span class="pill">Facial</span>
+            </div>
+          </div>
+        </article>
 
-<footer>
-<p>Bienestar y Belleza Milagro © 2025 | Centro de Estética Profesional</p>
-</footer>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1588776814546-ec7e4a6d9f14?auto=format&fit=crop&w=1200&q=80" alt="Fototerapia LED" loading="lazy">
+          <div class="content">
+            <h3>Fototerapia LED</h3>
+            <p>Terapia de luz regenerativa.</p>
+            <div class="meta">
+              <span class="price">25€</span>
+              <span class="pill">LED</span>
+            </div>
+          </div>
+        </article>
+      </div>
 
-<a class="whatsapp" href="https://wa.me/">WhatsApp</a>
+      <div class="cta-block" style="margin-top:28px">
+        <div>
+          <h3>¿No sabes qué tratamiento elegir?</h3>
+          <p>Te asesoramos por WhatsApp según tu piel y tus objetivos.</p>
+        </div>
+        <a class="btn" href="#contacto">Pedir asesoramiento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sobre nosotros</h2>
+        <p>Profesionalidad, higiene y un trato cercano para que te sientas cómoda desde el primer minuto.</p>
+      </div>
+
+      <div class="about">
+        <div class="box">
+          <p>
+            En <b>Bienestar y Belleza Milagro</b> trabajamos con tecnología estética y protocolos personalizados para cada tipo de piel.
+            Nuestro objetivo es ofrecer resultados visibles en un ambiente profesional, limpio y relajante.
+          </p>
+          <p style="margin-top:10px">
+            Pregunta por nuestros <b>descuentos</b> y <b>ofertas especiales</b>.
+          </p>
+        </div>
+
+        <div class="photo">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=80" alt="Centro de estética" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPINIONES -->
+  <section id="opiniones">
+    <div class="container">
+      <div class="section-title">
+        <h2>Opiniones</h2>
+        <p>Lo más importante: que salgas contenta con tu piel y con la experiencia.</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="quote">
+          <p>"Mi piel cambió completamente después del tratamiento. Profesionalidad y resultados increíbles."</p>
+          <strong>★★★★★</strong>
+        </div>
+        <div class="quote">
+          <p>"Ambiente muy limpio y atención excelente. Recomiendo totalmente."</p>
+          <strong>★★★★★</strong>
+        </div>
+        <div class="quote">
+          <p>"El mejor centro estético. Volveré sin duda."</p>
+          <strong>★★★★★</strong>
+        </div>
+      </div>
+
+      <!-- Bloque estilo Google Reviews (sin API) + botones -->
+      <div class="reviews-bar">
+        <div class="reviews-widget">
+          <div class="top">
+            <div class="g-badge">
+              <div class="g-dot" aria-hidden="true"></div>
+              <div>
+                <div style="font-weight:800">Reseñas de Google</div>
+                <div class="stars" aria-label="5 estrellas">★★★★★</div>
+              </div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;color:var(--brand)">Excelente</div>
+              <div style="color:var(--muted);font-size:12px">Comparte tu experiencia</div>
+            </div>
+          </div>
+
+          <p>¿Te atendimos bien? Tu reseña ayuda a que más personas nos encuentren y confíen en nuestro trabajo.</p>
+
+          <div class="actions">
+            <a class="btn primary" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">⭐ Dejar reseña</a>
+            <a class="btn" href="https://share.google/Clz3NVXb6k49HPopm" target="_blank" rel="noopener">Ver en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISÍTANOS + CONTACTO -->
+  <section id="visitanos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Visítanos</h2>
+        <p>Estamos en Barcelona. Reserva por WhatsApp y te confirmamos disponibilidad.</p>
+      </div>
+
+      <div class="two">
+        <div class="panel">
+          <h3>Información</h3>
+          <div class="list">
+            <div class="li"><b>📍 Dirección:</b> <span>Vía Favència 112–118, Barcelona, España</span></div>
+            <div class="li"><b>🕒 Horario:</b> <span>Lunes a Viernes 9:00–18:00 · Sábado y Domingo 9:00–13:00</span></div>
+            <div class="li"><b>📞 Teléfono:</b> <span>+34 664 605 743</span></div>
+          </div>
+
+          <div class="cta-block" style="margin-top:16px">
+            <div>
+              <h3>Reserva rápida</h3>
+              <p>Escríbenos y te contestamos lo antes posible.</p>
+            </div>
+            <a class="btn" href="#contacto">Contactar</a>
+          </div>
+        </div>
+
+        <div class="panel" id="contacto">
+          <h3>Mapa</h3>
+          <p>Encuéntranos fácilmente. Puedes abrir el mapa o dejar una reseña.</p>
+
+          <!-- Embed por dirección (fiable) -->
+          <iframe
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=V%C3%ADa%20Fav%C3%A8ncia%20112-118%2C%20Barcelona%2C%20Espa%C3%B1a&output=embed"
+            title="Mapa del centro">
+          </iframe>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="https://share.google/Clz3NVXb6k49HPopm" target="_blank" rel="noopener">
+              Abrir en Google Maps
+            </a>
+            <a class="btn primary" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">
+              ⭐ Dejar reseña
+            </a>
+            <a class="btn" href="tel:+34664605743">
+              Llamar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Bienestar y Belleza Milagro © 2026 · Vía Favència 112–118, Barcelona</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa-float"
+     href="https://wa.me/34664605743?text=Hola%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Milagro"
+     target="_blank" rel="noopener">
+    WhatsApp
+  </a>
 
 </body>
 </html>
