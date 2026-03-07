@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienestar y Belleza Milagro | Estética avanzada en Barcelona</title>
   <meta name="description" content="Tratamientos faciales y estéticos en Barcelona. Peelings químicos, limpieza facial profunda, microneedling, fototerapia LED, acné, manchas, rosácea y más." />
+  <link rel="icon" type="image/png" href="img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
@@ -55,34 +56,37 @@
     }
     .header-inner{
       display:flex;align-items:center;justify-content:space-between;gap:24px;
-      padding:14px 0;
+      padding:12px 0;
     }
     .brand{
-      display:flex;align-items:center;gap:14px;min-width:240px;
+      display:flex;align-items:center;gap:16px;min-width:240px;
     }
     .brand-logo{
-      width:54px;height:54px;border-radius:18px;overflow:hidden;
-      background:linear-gradient(135deg, rgba(255,74,172,.12), rgba(176,0,116,.15));
+      width:82px;height:82px;border-radius:22px;overflow:hidden;
+      background:#fff;
       box-shadow:var(--shadow-soft);
-      padding:7px;
-      border:1px solid rgba(176,0,116,.12);
+      padding:0;
+      border:1px solid rgba(176,0,116,.10);
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
     }
     .brand-logo img{width:100%;height:100%;object-fit:contain}
     .brand-text strong{
       display:block;
       font-family:"Cormorant Garamond", serif;
-      font-size:30px;
+      font-size:34px;
       line-height:.95;
       letter-spacing:.2px;
       color:var(--brand-3);
+      margin-bottom:4px;
     }
     .brand-text span{
       display:block;
       color:var(--muted);
       font-size:12px;
-      letter-spacing:.18em;
+      letter-spacing:.22em;
       text-transform:uppercase;
-      margin-top:4px;
+      margin-top:0;
     }
     .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
     .nav a{
@@ -369,6 +373,7 @@
       .main-photo{height:360px}
       .contact-actions,.hero-actions{flex-direction:column;align-items:stretch}
       .btn{width:100%}
+      .brand-logo{width:68px;height:68px;border-radius:18px}
       .brand-text strong{font-size:26px}
     }
   </style>
@@ -387,7 +392,7 @@
       </a>
 
       <nav class="nav" aria-label="Navegación principal">
-        <a href="#servicios">Servicios</a>
+        <a href="#tarifas">Servicios</a>
         <a href="#tarifas">Tarifas</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#galeria">Galería</a>
@@ -401,7 +406,7 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow"><i></i> Estética avanzada en Barcelona</div>
-        <h1>Cuida tu piel. Realza tu belleza.</h1>
+        <h1>Cuida tu piel.<br>Realza tu belleza.</h1>
         <p>
           Tratamientos faciales y estéticos con enfoque profesional, personalizado y delicado.
           En Bienestar y Belleza Milagro trabajamos para mejorar textura, luminosidad, hidratación,
@@ -410,7 +415,7 @@
 
         <div class="hero-actions">
           <a class="btn primary" href="https://wa.me/34664605743?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Milagro" target="_blank" rel="noopener">Reservar por WhatsApp</a>
-          <a class="btn" href="#servicios">Ver tratamientos</a>
+          <a class="btn" href="#tarifas">Ver tratamientos</a>
         </div>
 
         <div class="hero-points">
