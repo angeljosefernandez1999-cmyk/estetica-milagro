@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bienestar y Belleza Milagro | Estética avanzada en Barcelona</title>
-  <meta name="description" content="Tratamientos faciales y estéticos en Barcelona. Peelings químicos, limpieza facial profunda, microneedling, fototerapia LED, acné, manchas, rosácea y más." />
+  <title>Bienestar y Belleza Milagro | Estética facial y bienestar en Barcelona</title>
+  <meta name="description" content="Centro de estética facial y bienestar en Barcelona. Tratamientos para acné, manchas, rosácea, microneedling, limpieza facial profunda, LED y acupuntura." />
   <link rel="icon" type="image/png" href="img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -298,6 +298,22 @@
     .gallery-item img{width:100%;height:100%;object-fit:cover}
     .gallery-item.tall{grid-row:span 2;min-height:500px}
 
+    .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .faq-item{
+      background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
+      border-radius:24px;padding:22px;
+    }
+    .faq-item h3{font-size:18px;line-height:1.2;color:var(--brand-3);margin-bottom:10px}
+    .faq-item p{color:var(--muted)}
+    .cta-band{
+      margin-top:26px;padding:28px;border-radius:30px;
+      background:linear-gradient(135deg,#fff7fb 0%, #fff 100%);
+      border:1px solid var(--line);box-shadow:var(--shadow-soft);
+      display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    }
+    .cta-band h3{font-size:28px;line-height:1.05;color:var(--brand-3);margin-bottom:8px}
+    .cta-band p{color:var(--muted);max-width:60ch}
+
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .review{
       padding:22px;border-radius:26px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
@@ -367,7 +383,7 @@
       .hero{padding-top:44px}
       .hero h1{font-size:48px;max-width:none}
       .section-head h2{font-size:42px}
-      .services-grid,.reviews-grid,.gallery-grid,.hero-points{grid-template-columns:1fr}
+      .services-grid,.reviews-grid,.gallery-grid,.hero-points,.faq-grid{grid-template-columns:1fr}
       .floating-card,.mini-card{position:static;width:100%;margin-top:14px}
       .hero-visual{min-height:auto;display:grid;gap:14px}
       .main-photo{height:360px}
@@ -377,6 +393,26 @@
       .brand-text strong{font-size:26px}
     }
   </style>
+  <meta property="og:title" content="Bienestar y Belleza Milagro" />
+  <meta property="og:description" content="Tratamientos faciales, acné, manchas, rosácea, microneedling y limpieza facial en Barcelona." />
+  <meta property="og:image" content="img/logo.png" />
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Bienestar y Belleza Milagro",
+    "image": "img/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vía Favència 112-118",
+      "addressLocality": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34664605743"
+  }
+  </script>
 </head>
 <body>
   <header class="header">
@@ -405,12 +441,10 @@
   <main id="inicio" class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow"><i></i> Estética avanzada en Barcelona</div>
+        <div class="eyebrow"><i></i> Centro de estética facial y bienestar en Barcelona</div>
         <h1>Cuida tu piel.<br>Realza tu belleza.</h1>
         <p>
-          Tratamientos faciales y estéticos con enfoque profesional, personalizado y delicado.
-          En Bienestar y Belleza Milagro trabajamos para mejorar textura, luminosidad, hidratación,
-          acné, manchas, cicatrices y signos de la edad con protocolos adaptados a cada piel.
+          Tratamientos faciales, terapias de bienestar y protocolos personalizados para mejorar la textura, luminosidad y salud de tu piel. Trabajamos acné, manchas, rosácea, cicatrices, hidratación y signos de la edad con atención cercana y profesional.
         </p>
 
         <div class="hero-actions">
@@ -420,16 +454,16 @@
 
         <div class="hero-points">
           <div class="point">
-            <strong>Diagnóstico personalizado</strong>
-            <span>Tratamientos adaptados según necesidades y tipo de piel.</span>
+            <strong>Atención personalizada</strong>
+            <span>Valoramos tu piel y adaptamos cada tratamiento a tus necesidades.</span>
           </div>
           <div class="point">
-            <strong>Tecnología estética</strong>
-            <span>Protocolos con LED, exfoliación controlada y cuidado profesional.</span>
+            <strong>Estética y bienestar</strong>
+            <span>Combinamos cuidado facial, LED, microneedling y acupuntura.</span>
           </div>
           <div class="point">
-            <strong>Ambiente relajante</strong>
-            <span>Atención cercana, higiene y experiencia cómoda desde el primer minuto.</span>
+            <strong>Reserva rápida</strong>
+            <span>Pide cita por WhatsApp y te orientamos según tu caso.</span>
           </div>
         </div>
       </div>
@@ -452,6 +486,50 @@
       </div>
     </div>
   </main>
+
+  <section id="problemas">
+    <div class="container">
+      <div class="section-head">
+        <div class="intro">
+          <span class="tag">Tratamientos</span>
+          <h2>Problemas de piel que tratamos</h2>
+          <p>Nuestros tratamientos están orientados a mejorar diferentes alteraciones cutáneas y necesidades estéticas. Cada protocolo se adapta al tipo de piel, edad y objetivos de cada persona.</p>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento para acné" loading="lazy" />
+          <div class="service-content">
+            <div class="service-top">
+              <h3>Acné e impurezas</h3>
+            </div>
+            <p>Tratamientos orientados a limpiar profundamente la piel, regular el exceso de sebo y reducir la aparición de granos e inflamación.</p>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento manchas" loading="lazy" />
+          <div class="service-content">
+            <div class="service-top">
+              <h3>Manchas y melasmas</h3>
+            </div>
+            <p>Protocolos despigmentantes que ayudan a mejorar el tono irregular de la piel y devolver luminosidad al rostro.</p>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento antiedad" loading="lazy" />
+          <div class="service-content">
+            <div class="service-top">
+              <h3>Envejecimiento cutáneo</h3>
+            </div>
+            <p>Tratamientos enfocados en mejorar firmeza, textura y luminosidad de la piel para reducir signos visibles de la edad.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
   
 
@@ -499,9 +577,9 @@
       <div class="section-head">
         <div class="intro">
           <span class="tag">Nosotros</span>
-          <h2>Una marca con imagen más elegante, femenina y actual</h2>
+          <h2>Cuidado facial y bienestar con atención cercana</h2>
           <p>
-            En nuestro centro trabajamos para ofrecer un espacio dedicado al cuidado de la piel, combinando tratamientos estéticos con técnicas de bienestar para ayudar a mejorar la apariencia y la salud cutánea.
+            En Bienestar y Belleza Milagro ofrecemos un espacio pensado para cuidar la piel y mejorar el bienestar general. Cada sesión se adapta al estado de la piel, a los objetivos del cliente y al tratamiento más adecuado para cada caso.
           </p>
         </div>
       </div>
@@ -510,12 +588,10 @@
         <div class="about-card">
           <h3>Bienestar y Belleza Milagro</h3>
           <p>
-            Espacio de estética y cuidado facial donde cada tratamiento se adapta a la necesidad real de la piel.
-            La propuesta visual de esta versión da más protagonismo al logo, a los servicios y a la conversión por WhatsApp.
+            Trabajamos con tratamientos faciales y protocolos orientados a mejorar textura, luminosidad, hidratación, acné, manchas, cicatrices y otros desequilibrios cutáneos.
           </p>
           <p>
-            El objetivo es que la web se vea más profesional desde el primer vistazo y que cualquier persona entienda rápido qué haces,
-            cuánto cuesta y cómo reservar.
+            Nuestro objetivo es que cada cliente reciba una experiencia cómoda, profesional y personalizada, con orientación clara antes de elegir el tratamiento más adecuado.
           </p>
 
           <div class="about-list">
@@ -584,6 +660,45 @@
     </div>
   </section>
 
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="intro">
+          <span class="tag">Preguntas frecuentes</span>
+          <h2>Información útil antes de tu cita</h2>
+          <p>Estas son algunas de las dudas más habituales antes de reservar un tratamiento facial o de bienestar.</p>
+        </div>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>¿Cómo sé qué tratamiento necesito?</h3>
+          <p>Si no tienes claro cuál elegir, puedes escribir por WhatsApp y te orientaremos según tu tipo de piel, tus objetivos y el estado actual del rostro o la zona a tratar.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Los precios pueden variar?</h3>
+          <p>Los precios mostrados son orientativos. Algunos tratamientos pueden ajustarse según valoración previa, extensión de la zona o necesidades específicas.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Cada cuánto tiempo debo repetir un tratamiento?</h3>
+          <p>Depende del caso y del tratamiento elegido. En algunos protocolos se recomiendan varias sesiones para obtener mejores resultados y mantenimiento.</p>
+        </article>
+        <article class="faq-item">
+          <h3>¿Puedo pedir información antes de reservar?</h3>
+          <p>Sí. Puedes consultarnos por teléfono o WhatsApp y resolver dudas sobre acné, manchas, limpieza facial, LED, microneedling o acupuntura antes de reservar.</p>
+        </article>
+      </div>
+
+      <div class="cta-band">
+        <div>
+          <h3>¿Tienes dudas o quieres reservar?</h3>
+          <p>Escríbenos por WhatsApp y te ayudaremos a elegir el tratamiento más adecuado para tu piel o necesidad.</p>
+        </div>
+        <a class="btn primary" href="https://wa.me/34664605743?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20tratamientos%20de%20Bienestar%20y%20Belleza%20Milagro" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
   <section id="contacto">
     <div class="container">
       <div class="section-head">
@@ -649,7 +764,7 @@
   <footer>
     <div class="container footer-row">
       <span>Bienestar y Belleza Milagro © 2026</span>
-      <span>Diseño web moderno orientado a reservas y confianza visual</span>
+      <span>Estética facial, bienestar y reservas por WhatsApp en Barcelona</span>
     </div>
   </footer>
 
