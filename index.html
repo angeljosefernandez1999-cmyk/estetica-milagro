@@ -298,6 +298,35 @@
     .gallery-item img{width:100%;height:100%;object-fit:cover}
     .gallery-item.tall{grid-row:span 2;min-height:500px}
 
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .benefit-card{
+      background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
+      border-radius:26px;padding:24px;transition:.24s ease;
+    }
+    .benefit-card:hover{transform:translateY(-4px)}
+    .benefit-card .icon{
+      width:52px;height:52px;border-radius:16px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg, rgba(255,74,172,.14), rgba(176,0,116,.10));
+      color:var(--brand);font-size:24px;margin-bottom:14px;
+    }
+    .benefit-card h3{font-size:20px;line-height:1.15;color:var(--brand-3);margin-bottom:10px}
+    .benefit-card p{color:var(--muted)}
+
+    .highlight-band{
+      margin-top:28px;padding:26px 28px;border-radius:30px;
+      background:linear-gradient(135deg,#fff7fb 0%, #fff 100%);
+      border:1px solid var(--line);box-shadow:var(--shadow-soft);
+      display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;
+    }
+    .highlight-band h3{font-size:30px;line-height:1.05;color:var(--brand-3);margin-bottom:10px}
+    .highlight-band p{color:var(--muted)}
+    .highlight-points{display:grid;gap:10px}
+    .highlight-points div{
+      padding:12px 14px;border-radius:18px;background:#fff;border:1px solid rgba(176,0,116,.10);
+      color:#4e3e47;font-weight:600;
+    }
+
     .faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .faq-item{
       background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);
@@ -383,7 +412,7 @@
       .hero{padding-top:44px}
       .hero h1{font-size:48px;max-width:none}
       .section-head h2{font-size:42px}
-      .services-grid,.reviews-grid,.gallery-grid,.hero-points,.faq-grid{grid-template-columns:1fr}
+      .services-grid,.reviews-grid,.gallery-grid,.hero-points,.faq-grid,.benefits-grid{grid-template-columns:1fr}
       .floating-card,.mini-card{position:static;width:100%;margin-top:14px}
       .hero-visual{min-height:auto;display:grid;gap:14px}
       .main-photo{height:360px}
@@ -442,21 +471,30 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow"><i></i> Centro de estética facial y bienestar en Barcelona</div>
-        <h1>Cuida tu piel.<br>Realza tu belleza.</h1>
+        <h1>Cuida tu piel<br>Realza tu belleza<br>Eleva tu bienestar</h1>
         <p>
           Tratamientos faciales, terapias de bienestar y protocolos personalizados para mejorar la textura, luminosidad y salud de tu piel. Trabajamos acné, manchas, rosácea, cicatrices, hidratación y signos de la edad con atención cercana y profesional.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+          <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reserva tu cita por WhatsApp</a>
           <a class="btn" href="#tarifas">Ver tratamientos</a>
         </div>
 
         <div class="hero-points">
           <div class="point">
-            <strong>Atención personalizada</strong>
-            <span>Valoramos tu piel y adaptamos cada tratamiento a tus necesidades.</span>
+            <strong>Cuidado profesional</strong>
+            <span>Tratamientos faciales adaptados a tu tipo de piel y necesidades reales.</span>
           </div>
+          <div class="point">
+            <strong>Estética y bienestar</strong>
+            <span>Si además de verte bello(a) deseas sentirte bien, combinamos tratamientos faciales con acupuntura.</span>
+          </div>
+          <div class="point">
+            <strong>Reserva sencilla</strong>
+            <span>Contacta por WhatsApp y recibe asesoramiento personalizado.</span>
+          </div>
+        </div>
           <div class="point">
             <strong>Estética y bienestar</strong>
             <span>Combinamos cuidado facial, LED, microneedling y acupuntura.</span>
@@ -486,6 +524,48 @@
       </div>
     </div>
   </main>
+
+  <section id="ventajas">
+    <div class="container">
+      <div class="section-head">
+        <div class="intro">
+          <span class="tag">Por qué elegirnos</span>
+          <h2>Un cuidado más personal, profesional y orientado a resultados</h2>
+          <p>En Bienestar y Belleza Aribel cuidamos cada detalle para que tu experiencia sea cómoda, clara y adaptada a lo que realmente necesita tu piel.</p>
+        </div>
+      </div>
+
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="icon">✨</div>
+          <h3>Tratamientos personalizados</h3>
+          <p>Cada protocolo se adapta al tipo de piel, al objetivo estético y a la evolución de cada caso.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="icon">💆</div>
+          <h3>Estética y bienestar</h3>
+          <p>Combinamos cuidado facial, aparatología estética y terapias de bienestar para ofrecer una atención más completa.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="icon">📲</div>
+          <h3>Asesoramiento cercano</h3>
+          <p>Si no sabes qué tratamiento elegir, te orientamos por WhatsApp o por teléfono antes de reservar tu cita.</p>
+        </article>
+      </div>
+
+      <div class="highlight-band">
+        <div>
+          <h3>Trabajamos acné, manchas, rosácea, cicatrices y signos de la edad</h3>
+          <p>Nuestro enfoque busca mejorar textura, luminosidad, hidratación y apariencia general de la piel con una atención cercana y profesional.</p>
+        </div>
+        <div class="highlight-points">
+          <div>✔ Limpieza facial profunda y protocolos LED</div>
+          <div>✔ Microneedling facial, capilar y corporal</div>
+          <div>✔ Tratamientos personalizados según tu piel</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="problemas">
     <div class="container">
@@ -538,7 +618,7 @@
       <div class="section-head">
         <div class="intro">
           <span class="tag">Tarifas</span>
-          <h2>Carta completa de servicios</h2>
+          <h2>Tratamientos y precios</h2>
           <p>Aquí puedes consultar todos los tratamientos disponibles junto con sus precios orientativos para que puedas elegir el servicio que mejor se adapte a tus necesidades.</p>
         </div>
       </div>
@@ -546,7 +626,7 @@
       <div class="price-panel">
         <div class="price-panel-head">
           <div>
-            <h3>Precios orientativos</h3>
+            <h3>Tarifas orientativas</h3>
             <p>Consulta disponibilidad, packs y promociones vigentes al reservar.</p>
           </div>
         </div>
@@ -633,7 +713,7 @@
       <div class="section-head">
         <div class="intro">
           <span class="tag">Opiniones</span>
-          <h2>La experiencia de nuestras clientas</h2>
+          <h2>Opiniones reales de nuestras clientas</h2>
           <p>Las opiniones de nuestras clientas reflejan la experiencia real de quienes ya han confiado en Bienestar y Belleza Aribel. Puedes consultar más valoraciones en nuestra ficha de Google.</p>
         </div>
       </div>
@@ -647,7 +727,7 @@
 
         <article class="review">
           <div class="stars">★★★★★</div>
-          <p>Consulta todas las opiniones oficiales del centro y descubre la experiencia de otros clientes en Google.</p>
+          <p>Puedes consultar más valoraciones en Google y descubrir la experiencia de otras personas que ya han confiado en nuestros tratamientos.</p>
           <strong>Opiniones verificadas</strong>
         </article>
       </div>
@@ -711,8 +791,8 @@
 
       <div class="contact-wrap">
         <div class="contact-card">
-          <h3>Información de contacto</h3>
-          <p>Disponible para reservas, consultas y valoración de tratamientos.</p>
+          <h3>Contacto y reservas</h3>
+          <p>Estamos disponibles para reservas, consultas y orientación personalizada sobre los tratamientos.</p>
 
           <div class="info-list">
             <div class="info-item">
@@ -747,8 +827,8 @@
 
         <div class="map-card">
           <div class="map-copy">
-            <h3>Ubicación</h3>
-            <p>Mapa integrado para facilitar la visita desde móvil o escritorio.</p>
+            <h3>Dónde estamos</h3>
+            <p>Encuéntranos fácilmente en Barcelona y reserva tu cita por WhatsApp o teléfono.</p>
           </div>
           <iframe
             loading="lazy"
@@ -764,7 +844,7 @@
   <footer>
     <div class="container footer-row">
       <span>Bienestar y Belleza Aribel © 2026</span>
-      <span>Estética facial, bienestar y reservas por WhatsApp en Barcelona · Bienestar y Belleza Aribel</span>
+      <span>Estética facial, bienestar y reservas por WhatsApp en Barcelona</span>
     </div>
   </footer>
 
