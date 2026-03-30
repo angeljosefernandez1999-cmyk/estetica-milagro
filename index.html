@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienestar y Belleza Aribel | Estética facial y bienestar en Barcelona</title>
-  <meta name="description" content="Centro de estética facial y bienestar en Barcelona. Tratamientos para acné, manchas, rosácea, microneedling, limpieza facial profunda, LED y acupuntura." />
+  <meta name="description" content="Centro de estética facial y bienestar en Barcelona. Tratamientos para acné, manchas, rosácea, microneedling, limpieza facial profunda, LED, acupuntura y terapias holísticas." />
   <link rel="icon" type="image/png" href="img/logo.png" />
   <meta property="og:title" content="Bienestar y Belleza Aribel" />
-  <meta property="og:description" content="Tratamientos faciales, acné, manchas, rosácea, microneedling y limpieza facial en Barcelona." />
+  <meta property="og:description" content="Tratamientos faciales, bienestar y reservas en Barcelona." />
   <meta property="og:image" content="img/logo.png" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
   <style>
     :root{
       --bg:#fffafb;
-      --surface-solid:#ffffff;
+      --surface:#ffffff;
       --text:#22151f;
       --muted:#7b6672;
       --line:rgba(151,39,103,.12);
@@ -25,6 +25,8 @@
       --brand-2:#ff4aac;
       --brand-3:#7d0057;
       --ok:#25D366;
+      --teal:#176a5d;
+      --teal-2:#2f9f8f;
       --shadow:0 20px 60px rgba(95,19,66,.10);
       --shadow-soft:0 12px 30px rgba(95,19,66,.08);
       --max:1180px;
@@ -41,6 +43,7 @@
         linear-gradient(180deg, #fff8fb 0%, #ffffff 36%, #fff9fc 100%);
       line-height:1.65;
     }
+
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
     .container{max-width:var(--max);margin:auto;padding:0 20px}
@@ -48,259 +51,1046 @@
     section[id]{scroll-margin-top:100px}
 
     .header{
-      position:sticky;top:0;z-index:100;
-      background:rgba(255,250,252,.72);
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,250,252,.76);
       backdrop-filter:blur(16px);
       border-bottom:1px solid var(--line);
     }
+
     .header-inner{
-      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
       padding:12px 0;
     }
-    .brand{display:flex;align-items:center;gap:16px;min-width:240px}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      min-width:240px;
+    }
+
     .brand-logo{
-      width:82px;height:82px;border-radius:22px;overflow:hidden;
-      background:#fff;box-shadow:var(--shadow-soft);border:1px solid rgba(176,0,116,.10);
-      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      width:82px;
+      height:82px;
+      border-radius:22px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(176,0,116,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
     }
-    .brand-logo img{width:100%;height:100%;object-fit:contain}
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
     .brand-text strong{
-      display:block;font-family:"Cormorant Garamond", serif;font-size:34px;line-height:.95;
-      letter-spacing:.2px;color:var(--brand-3);margin-bottom:4px;
+      display:block;
+      font-family:"Cormorant Garamond", serif;
+      font-size:34px;
+      line-height:.95;
+      letter-spacing:.2px;
+      color:var(--brand-3);
+      margin-bottom:4px;
     }
+
     .brand-text span{
-      display:block;color:var(--muted);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
     }
-    .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
     .nav a{
-      padding:10px 14px;border-radius:999px;font-weight:600;font-size:14px;
-      color:rgba(34,21,31,.88);transition:.22s ease;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:14px;
+      color:rgba(34,21,31,.88);
+      transition:.22s ease;
     }
-    .nav a:hover{background:rgba(176,0,116,.07);color:var(--brand)}
+
+    .nav a:hover{
+      background:rgba(176,0,116,.07);
+      color:var(--brand);
+    }
+
     .nav .cta{
-      color:#fff;background:linear-gradient(135deg,var(--brand-2),var(--brand));
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-2),var(--brand));
       box-shadow:0 14px 34px rgba(176,0,116,.22);
     }
 
     .hero{
-      position:relative;z-index:2;
+      position:relative;
+      z-index:2;
       padding:72px 0 56px;
       overflow:hidden;
     }
+
     .hero::before{
-      content:"";position:absolute;left:-80px;bottom:20px;width:260px;height:260px;border-radius:50%;
-      background:radial-gradient(circle, rgba(255,74,172,.18), transparent 70%);pointer-events:none;
+      content:"";
+      position:absolute;
+      left:-80px;
+      bottom:20px;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,74,172,.18), transparent 70%);
+      pointer-events:none;
     }
+
     .hero::after{
-      content:"";position:absolute;right:40px;top:40px;width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle, rgba(176,0,116,.10), transparent 70%);pointer-events:none;
+      content:"";
+      position:absolute;
+      right:40px;
+      top:40px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(176,0,116,.10), transparent 70%);
+      pointer-events:none;
     }
+
     .hero-grid{
-      display:grid;grid-template-columns:1.12fr .88fr;gap:72px;align-items:center;position:relative;z-index:1;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:72px;
+      align-items:center;
+      position:relative;
+      z-index:1;
     }
-    .hero-content{display:flex;flex-direction:column;justify-content:center;max-width:680px}
+
+    .hero-content{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      max-width:680px;
+    }
+
     .eyebrow{
-      display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);
-      background:rgba(255,255,255,.9);color:var(--brand);border-radius:999px;padding:8px 14px;
-      font-size:13px;font-weight:700;box-shadow:var(--shadow-soft);width:max-content;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      color:var(--brand);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:13px;
+      font-weight:700;
+      box-shadow:var(--shadow-soft);
+      width:max-content;
     }
+
     .eyebrow i{
-      width:10px;height:10px;border-radius:50%;display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      display:inline-block;
       background:linear-gradient(135deg,var(--brand-2),var(--brand));
     }
+
     .hero h1{
-      margin:18px 0 18px;font-family:"Cormorant Garamond", serif;font-size:78px;line-height:.94;
-      letter-spacing:-.02em;color:#2f1621;
+      margin:18px 0 18px;
+      font-family:"Cormorant Garamond", serif;
+      font-size:78px;
+      line-height:.94;
+      letter-spacing:-.02em;
+      color:#2f1621;
     }
-    .hero p{max-width:560px;font-size:21px;line-height:1.75;color:#6f5d67;margin-bottom:0}
-    .hero-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+
+    .hero p{
+      max-width:560px;
+      font-size:21px;
+      line-height:1.75;
+      color:#6f5d67;
+    }
+
+    .hero-actions{
+      margin-top:26px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;
-      font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid var(--line);
-      background:#fff;transition:transform .22s ease, box-shadow .22s ease;box-shadow:var(--shadow-soft);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:15px;
+      letter-spacing:-.01em;
+      border:1px solid var(--line);
+      background:#fff;
+      transition:transform .22s ease, box-shadow .22s ease;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
     }
+
     .btn:hover{transform:translateY(-2px)}
+
     .btn.primary{
-      color:#fff;border:none;background:linear-gradient(135deg,var(--brand-2),var(--brand));
+      color:#fff;
+      border:none;
+      background:linear-gradient(135deg,var(--brand-2),var(--brand));
       box-shadow:0 18px 36px rgba(176,0,116,.24);
     }
-    .btn:not(.primary){
-      background:rgba(255,255,255,.86);color:#2f1e27;border:1px solid rgba(176,0,116,.10);
+
+    .btn.soft{
+      background:rgba(255,255,255,.86);
+      color:#2f1e27;
+      border:1px solid rgba(176,0,116,.10);
       box-shadow:0 10px 22px rgba(95,19,66,.08);
     }
-    .hero-points{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .point{
-      background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-radius:24px;padding:22px 18px;
-      border:1px solid rgba(176,0,116,.10);box-shadow:0 18px 35px rgba(95,19,66,.08);
+
+    .hero-points{
+      margin-top:42px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
     }
-    .point strong{display:block;font-size:24px;line-height:1.1;color:#8f0d63;margin-bottom:10px}
-    .point span{color:#73626c;font-size:15px;line-height:1.7}
-    .hero-visual{position:relative;display:flex;justify-content:flex-end;align-items:center}
+
+    .point{
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(14px);
+      border-radius:24px;
+      padding:22px 18px;
+      border:1px solid rgba(176,0,116,.10);
+      box-shadow:0 18px 35px rgba(95,19,66,.08);
+    }
+
+    .point strong{
+      display:block;
+      font-size:24px;
+      line-height:1.1;
+      color:#8f0d63;
+      margin-bottom:10px;
+    }
+
+    .point span{
+      color:#73626c;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .hero-visual{
+      position:relative;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
     .hero-visual::before{
-      content:"";position:absolute;width:82%;height:82%;right:0;border-radius:36px;
+      content:"";
+      position:absolute;
+      width:82%;
+      height:82%;
+      right:0;
+      border-radius:36px;
       background:linear-gradient(135deg, rgba(255,255,255,.70), rgba(255,255,255,.18));
-      border:1px solid rgba(255,255,255,.55);box-shadow:0 18px 40px rgba(95,19,66,.10);
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 18px 40px rgba(95,19,66,.10);
       transform:translate(20px,20px);
     }
+
     .hero-visual img{
-      position:relative;z-index:1;width:100%;max-width:560px;height:560px;object-fit:cover;
-      border-radius:34px;box-shadow:0 34px 70px rgba(69,18,48,.20);
+      position:relative;
+      z-index:1;
+      width:100%;
+      max-width:560px;
+      height:560px;
+      object-fit:cover;
+      border-radius:34px;
+      box-shadow:0 34px 70px rgba(69,18,48,.20);
     }
 
     .section-head{
-      display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:28px;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
     }
-    .section-head .intro{max-width:740px}
-    .section-head .tag{
-      display:inline-block;margin-bottom:10px;font-size:12px;font-weight:800;letter-spacing:.16em;
-      text-transform:uppercase;color:var(--brand);
-    }
-    .section-head h2{
-      font-family:"Cormorant Garamond", serif;color:var(--brand-3);font-size:52px;line-height:.96;margin-bottom:10px;
-    }
-    .section-head p{color:var(--muted);max-width:66ch}
 
-    .services-grid,.benefits-grid,.faq-grid,.reviews-grid{display:grid;gap:18px}
-    .services-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+    .section-head .intro{max-width:760px}
+
+    .section-head .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--brand);
+    }
+
+    .section-head h2{
+      font-family:"Cormorant Garamond", serif;
+      color:var(--brand-3);
+      font-size:52px;
+      line-height:.96;
+      margin-bottom:10px;
+    }
+
+    .section-head p{color:var(--muted);max-width:70ch}
+
+    .benefits-grid,
+    .services-grid,
+    .faq-grid,
+    .reviews-grid{
+      display:grid;
+      gap:18px;
+    }
+
     .benefits-grid{grid-template-columns:repeat(3,1fr)}
+    .services-grid{grid-template-columns:repeat(3,1fr);gap:20px}
     .faq-grid{grid-template-columns:repeat(2,1fr)}
     .reviews-grid{grid-template-columns:repeat(3,1fr)}
 
-    .service-card,.benefit-card,.faq-item,.review{
-      border-radius:26px;background:var(--surface-solid);border:1px solid var(--line);box-shadow:var(--shadow-soft);
-    }
-    .service-card{overflow:hidden;transition:.24s ease}
-    .service-card:hover,.benefit-card:hover{transform:translateY(-4px)}
-    .service-card img{width:100%;height:220px;object-fit:cover}
-    .service-content{padding:18px 18px 20px}
-    .service-top{display:flex;align-items:start;justify-content:space-between;gap:12px;margin-bottom:8px}
-    .service-card h3{font-size:18px;line-height:1.2;color:#321722}
-    .service-card p,.benefit-card p,.faq-item p,.review p,.highlight-band p,.cta-band p,.contact-card p,.map-card p,.about-card p{color:var(--muted)}
-    .price{
-      white-space:nowrap;font-weight:800;color:var(--brand);font-size:15px;background:rgba(176,0,116,.06);
-      border:1px solid rgba(176,0,116,.12);padding:8px 10px;border-radius:999px;
+    .benefit-card,
+    .service-card,
+    .faq-item,
+    .review,
+    .booking-card,
+    .booking-side,
+    .contact-card,
+    .map-card,
+    .about-card,
+    .about-photo{
+      border-radius:28px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
     }
 
-    .benefit-card{padding:24px}
+    .benefit-card,
+    .faq-item,
+    .review{
+      padding:24px;
+    }
+
+    .benefit-card:hover,
+    .service-card:hover{
+      transform:translateY(-4px);
+      transition:.24s ease;
+    }
+
     .benefit-card .icon{
-      width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       background:linear-gradient(135deg, rgba(255,74,172,.14), rgba(176,0,116,.10));
-      color:var(--brand);font-size:24px;margin-bottom:14px;
+      color:var(--brand);
+      font-size:24px;
+      margin-bottom:14px;
     }
-    .benefit-card h3{font-size:20px;line-height:1.15;color:var(--brand-3);margin-bottom:10px}
 
-    .highlight-band{
-      margin-top:28px;padding:26px 28px;border-radius:30px;background:linear-gradient(135deg,#fff7fb 0%, #fff 100%);
-      border:1px solid var(--line);box-shadow:var(--shadow-soft);display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;
-    }
-    .highlight-band h3,.cta-band h3,.contact-card h3,.map-card h3,.about-card h3{
+    .benefit-card h3,
+    .faq-item h3,
+    .booking-card h3,
+    .booking-side h3,
+    .contact-card h3,
+    .map-card h3,
+    .about-card h3{
       color:var(--brand-3);
     }
-    .highlight-band h3{font-size:30px;line-height:1.05;margin-bottom:10px}
-    .highlight-points{display:grid;gap:10px}
+
+    .benefit-card h3{
+      font-size:20px;
+      line-height:1.15;
+      margin-bottom:10px;
+    }
+
+    .benefit-card p,
+    .service-card p,
+    .faq-item p,
+    .review p,
+    .booking-card p,
+    .booking-side p,
+    .contact-card p,
+    .map-card p,
+    .about-card p{
+      color:var(--muted);
+    }
+
+    .highlight-band,
+    .cta-band{
+      margin-top:28px;
+      padding:28px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#fff7fb 0%, #fff 100%);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+    }
+
+    .highlight-band{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      align-items:center;
+    }
+
+    .highlight-band h3{
+      font-size:30px;
+      line-height:1.05;
+      color:var(--brand-3);
+      margin-bottom:10px;
+    }
+
+    .highlight-points{
+      display:grid;
+      gap:10px;
+    }
+
     .highlight-points div{
-      padding:12px 14px;border-radius:18px;background:#fff;border:1px solid rgba(176,0,116,.10);color:#4e3e47;font-weight:600;
+      padding:12px 14px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid rgba(176,0,116,.10);
+      color:#4e3e47;
+      font-weight:600;
+    }
+
+    .service-card{
+      overflow:hidden;
+    }
+
+    .service-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .service-content{
+      padding:18px 18px 20px;
+    }
+
+    .service-top{
+      display:flex;
+      align-items:start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .service-card h3{
+      font-size:18px;
+      line-height:1.2;
+      color:#321722;
+    }
+
+    .price{
+      white-space:nowrap;
+      font-weight:800;
+      color:var(--brand);
+      font-size:15px;
+      background:rgba(176,0,116,.06);
+      border:1px solid rgba(176,0,116,.12);
+      padding:8px 10px;
+      border-radius:999px;
     }
 
     .price-panel{
-      margin-top:32px;border:1px solid var(--line);border-radius:30px;background:#fff;box-shadow:var(--shadow-soft);overflow:hidden;
+      margin-top:32px;
+      border:1px solid var(--line);
+      border-radius:30px;
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
     }
+
     .price-panel-head{
-      padding:24px 24px 14px;display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap;
+      padding:24px 24px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:18px;
+      flex-wrap:wrap;
       background:linear-gradient(180deg, rgba(255,242,248,.9), #fff);
     }
-    .price-panel-head h3{font-size:26px;color:var(--brand-3)}
-    .price-list{display:grid;grid-template-columns:1fr 1fr}
+
+    .price-panel-head h3{
+      font-size:26px;
+      color:var(--brand-3);
+    }
+
+    .price-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+    }
+
     .price-item{
-      display:flex;justify-content:space-between;gap:16px;padding:16px 24px;border-top:1px solid rgba(151,39,103,.10);
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:16px 24px;
+      border-top:1px solid rgba(151,39,103,.10);
     }
-    .price-item:nth-child(odd){border-right:1px solid rgba(151,39,103,.10)}
-    .price-item span:first-child{color:#341722;font-weight:600}
-    .price-item span:last-child{color:var(--brand);font-weight:800;white-space:nowrap}
 
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
-    .about-card,.about-photo,.contact-card,.map-card{border-radius:30px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft)}
-    .about-card{padding:30px;background:linear-gradient(180deg,#fff,#fff7fb)}
-    .about-card h3{font-size:28px;line-height:1.08;margin-bottom:14px}
-    .about-list{display:grid;gap:12px;margin-top:16px}
+    .price-item:nth-child(odd){
+      border-right:1px solid rgba(151,39,103,.10);
+    }
+
+    .price-item span:first-child{
+      color:#341722;
+      font-weight:600;
+    }
+
+    .price-item span:last-child{
+      color:var(--brand);
+      font-weight:800;
+      white-space:nowrap;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .about-card{
+      padding:30px;
+      background:linear-gradient(180deg,#fff,#fff7fb);
+    }
+
+    .about-card h3{
+      font-size:28px;
+      line-height:1.08;
+      margin-bottom:14px;
+    }
+
+    .about-list{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
     .about-list div{
-      display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:18px;background:#fff;border:1px solid rgba(176,0,116,.10);
-    }
-    .about-list b,.info-item b{color:var(--brand)}
-    .about-photo{min-height:480px}
-    .about-photo img{width:100%;height:100%;object-fit:cover}
-
-    .gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:16px;margin-top:16px}
-    .gallery-item{border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-soft);min-height:240px}
-    .gallery-item img{width:100%;height:100%;object-fit:cover}
-    .gallery-item.tall{grid-row:span 2;min-height:500px}
-
-    .faq-item{padding:22px}
-    .faq-item h3{font-size:18px;line-height:1.2;color:var(--brand-3);margin-bottom:10px}
-    .cta-band{
-      margin-top:26px;padding:28px;border-radius:30px;background:linear-gradient(135deg,#fff7fb 0%, #fff 100%);
-      border:1px solid var(--line);box-shadow:var(--shadow-soft);display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
-    }
-    .cta-band h3{font-size:28px;line-height:1.05;margin-bottom:8px}
-
-    .review{padding:22px}
-    .stars{letter-spacing:3px;color:#f6a700;font-size:17px;margin-bottom:12px}
-    .review strong{color:var(--brand-3)}
-
-    .contact-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px}
-    .contact-card{padding:28px}
-    .contact-card h3,.map-card h3{font-size:28px;margin-bottom:12px}
-    .info-list{display:grid;gap:12px;margin:18px 0 20px}
-    .info-item{
-      display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:linear-gradient(180deg,#fff,#fff6fb);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 14px;
+      border-radius:18px;
+      background:#fff;
       border:1px solid rgba(176,0,116,.10);
     }
-    .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .map-card iframe{width:100%;height:100%;min-height:450px;border:0}
-    .map-card .map-copy{padding:24px 24px 0}
+
+    .about-list b,
+    .info-item b{
+      color:var(--brand);
+    }
+
+    .about-photo{
+      min-height:480px;
+      overflow:hidden;
+    }
+
+    .about-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .gallery-item{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      min-height:240px;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-item.tall{
+      grid-row:span 2;
+      min-height:500px;
+    }
+
+    .faq-item h3{
+      font-size:18px;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+
+    .cta-band{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .cta-band h3{
+      font-size:28px;
+      line-height:1.05;
+      color:var(--brand-3);
+      margin-bottom:8px;
+    }
+
+    .review{
+      padding:22px;
+    }
+
+    .stars{
+      letter-spacing:3px;
+      color:#f6a700;
+      font-size:17px;
+      margin-bottom:12px;
+    }
+
+    .review strong{
+      color:var(--brand-3);
+    }
+
+    .booking-wrap{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      margin-top:28px;
+      align-items:start;
+    }
+
+    .booking-card{
+      padding:28px;
+    }
+
+    .booking-side{
+      padding:28px;
+      background:linear-gradient(180deg,#fff,#fff7fb);
+    }
+
+    .booking-card h3,
+    .booking-side h3{
+      font-size:28px;
+      line-height:1.08;
+      margin-bottom:10px;
+    }
+
+    .booking-form{
+      display:grid;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .field label{
+      font-size:14px;
+      font-weight:700;
+      color:#321722;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      border:1px solid rgba(176,0,116,.14);
+      border-radius:16px;
+      padding:14px 16px;
+      font:inherit;
+      color:#2a1822;
+      background:#fff;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus{
+      outline:none;
+      border-color:rgba(176,0,116,.40);
+      box-shadow:0 0 0 4px rgba(176,0,116,.08);
+    }
+
+    .field textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .full{
+      grid-column:1 / -1;
+    }
+
+    .service-groups{
+      display:grid;
+      gap:14px;
+    }
+
+    .service-group{
+      border-radius:22px;
+      padding:16px;
+      border:1px solid rgba(176,0,116,.12);
+    }
+
+    .service-group h4{
+      font-size:15px;
+      margin-bottom:10px;
+      color:#fff;
+      padding:10px 12px;
+      border-radius:14px;
+      line-height:1.2;
+    }
+
+    .service-group.estetica{
+      background:rgba(255,244,250,.9);
+    }
+
+    .service-group.estetica h4{
+      background:linear-gradient(135deg,#ff4aac,#b00074);
+    }
+
+    .service-group.holistica{
+      background:rgba(245,251,250,.95);
+    }
+
+    .service-group.holistica h4{
+      background:linear-gradient(135deg,var(--teal-2),var(--teal));
+    }
+
+    .service-options{
+      display:grid;
+      gap:10px;
+    }
+
+    .check-option{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid rgba(176,0,116,.08);
+    }
+
+    .check-option input{
+      margin-top:3px;
+    }
+
+    .check-option span{
+      color:#493844;
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .consent-box{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:linear-gradient(180deg,#fff,#fff7fb);
+      border:1px solid rgba(176,0,116,.10);
+    }
+
+    .form-note{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .urgency-box{
+      display:grid;
+      gap:10px;
+    }
+
+    .urgency-chips{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    .urgency-chips label{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      text-align:center;
+      padding:12px 10px;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid rgba(176,0,116,.10);
+      color:#4d3944;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .booking-submit{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:4px;
+    }
+
+    .booking-side ul{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+      padding-left:18px;
+      color:#5f4b56;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:20px;
+    }
+
+    .contact-card{
+      padding:28px;
+    }
+
+    .contact-card h3,
+    .map-card h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .info-list{
+      display:grid;
+      gap:12px;
+      margin:18px 0 20px;
+    }
+
+    .info-item{
+      display:flex;
+      gap:12px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:linear-gradient(180deg,#fff,#fff6fb);
+      border:1px solid rgba(176,0,116,.10);
+    }
+
+    .contact-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .map-card iframe{
+      width:100%;
+      height:100%;
+      min-height:450px;
+      border:0;
+    }
+
+    .map-card .map-copy{
+      padding:24px 24px 0;
+    }
 
     footer{
-      border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);background:rgba(255,255,255,.74);
+      border-top:1px solid var(--line);
+      padding:26px 0 34px;
+      color:var(--muted);
+      background:rgba(255,255,255,.74);
     }
-    .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
     .wa-float{
-      position:fixed;right:18px;bottom:18px;z-index:120;display:inline-flex;align-items:center;gap:10px;
-      padding:14px 18px;border-radius:999px;background:var(--ok);color:#fff;font-weight:800;
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:120;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:var(--ok);
+      color:#fff;
+      font-weight:800;
       box-shadow:0 16px 35px rgba(37,211,102,.30);
     }
 
     @media (max-width:1100px){
-      .hero-grid,.about-grid,.contact-wrap,.highlight-band{grid-template-columns:1fr}
-      .hero{padding:56px 0 40px}
-      .hero h1{font-size:60px}
-      .hero-visual{justify-content:center}
-      .hero-visual::before{display:none}
-      .hero-visual img{max-width:620px;height:420px}
-      .services-grid,.benefits-grid{grid-template-columns:repeat(2,1fr)}
-      .reviews-grid{grid-template-columns:1fr 1fr}
+      .hero-grid,
+      .about-grid,
+      .contact-wrap,
+      .highlight-band,
+      .booking-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding:56px 0 40px;
+      }
+
+      .hero h1{
+        font-size:60px;
+      }
+
+      .hero-visual{
+        justify-content:center;
+      }
+
+      .hero-visual::before{
+        display:none;
+      }
+
+      .hero-visual img{
+        max-width:620px;
+        height:420px;
+      }
+
+      .services-grid,
+      .benefits-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .reviews-grid{
+        grid-template-columns:1fr 1fr;
+      }
     }
+
     @media (max-width:920px){
-      section{padding:72px 0}
-      .hero-grid,.about-grid,.contact-wrap,.highlight-band,.faq-grid{grid-template-columns:1fr}
-      .hero h1{font-size:48px;max-width:none}
-      .hero p{font-size:18px}
-      .hero-points{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:1fr 1fr}
-      .gallery-item.tall{grid-row:auto;min-height:280px}
-      .price-list{grid-template-columns:1fr}
-      .price-item:nth-child(odd){border-right:none}
+      section{
+        padding:72px 0;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-wrap,
+      .highlight-band,
+      .faq-grid,
+      .booking-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .gallery-item.tall{
+        grid-row:auto;
+        min-height:280px;
+      }
+
+      .price-list{
+        grid-template-columns:1fr;
+      }
+
+      .price-item:nth-child(odd){
+        border-right:none;
+      }
     }
+
+    @media (max-width:700px){
+      .form-grid,
+      .urgency-chips{
+        grid-template-columns:1fr;
+      }
+    }
+
     @media (max-width:640px){
-      .header-inner{align-items:flex-start;flex-direction:column}
-      .nav{justify-content:flex-start}
-      .services-grid,.reviews-grid,.gallery-grid,.faq-grid,.benefits-grid{grid-template-columns:1fr}
-      .contact-actions,.hero-actions{flex-direction:column;align-items:stretch}
-      .btn{width:100%}
-      .brand-logo{width:68px;height:68px;border-radius:18px}
-      .brand-text strong{font-size:26px}
-      .section-head h2{font-size:42px}
-      .hero-visual img{height:auto}
+      .header-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        justify-content:flex-start;
+      }
+
+      .services-grid,
+      .reviews-grid,
+      .gallery-grid,
+      .faq-grid,
+      .benefits-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-actions,
+      .hero-actions,
+      .booking-submit{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .brand-logo{
+        width:68px;
+        height:68px;
+        border-radius:18px;
+      }
+
+      .brand-text strong{
+        font-size:26px;
+      }
+
+      .section-head h2{
+        font-size:42px;
+      }
+
+      .hero-visual img{
+        height:auto;
+      }
     }
   </style>
 
@@ -336,10 +1126,11 @@
       <nav class="nav" aria-label="Navegación principal">
         <a href="#tarifas">Servicios</a>
         <a href="#tarifas">Tarifas</a>
+        <a href="#reserva">Reservas</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#galeria">Galería</a>
         <a href="#opiniones">Opiniones</a>
-        <a class="cta" href="#contacto">Reservar cita</a>
+        <a class="cta" href="#contacto">Contactar</a>
       </nav>
     </div>
   </header>
@@ -348,14 +1139,16 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="eyebrow"><i></i> Centro de estética facial y bienestar en Barcelona</div>
+
         <h1>Cuida tu piel<br>Realza tu belleza<br>Eleva tu bienestar</h1>
+
         <p>
           Tratamientos faciales, terapias de bienestar y protocolos personalizados para mejorar la textura, luminosidad y salud de tu piel. Trabajamos acné, manchas, rosácea, cicatrices, hidratación y signos de la edad con atención cercana y profesional.
         </p>
 
         <div class="hero-actions">
           <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reserva tu cita por WhatsApp</a>
-          <a class="btn" href="#tarifas">Ver tratamientos</a>
+          <a class="btn soft" href="#tarifas">Ver tratamientos</a>
         </div>
 
         <div class="hero-points">
@@ -415,47 +1208,9 @@
         </div>
         <div class="highlight-points">
           <div>✔ Limpieza facial profunda y protocolos LED</div>
-          <div>✔ Microneedling facial, capilar y corporal</div>
+          <div>✔ Dermapen y microneedling</div>
           <div>✔ Tratamientos personalizados según tu piel</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="problemas">
-    <div class="container">
-      <div class="section-head">
-        <div class="intro">
-          <span class="tag">Tratamientos</span>
-          <h2>Problemas de piel que tratamos</h2>
-          <p>Nuestros tratamientos están orientados a mejorar diferentes alteraciones cutáneas y necesidades estéticas. Cada protocolo se adapta al tipo de piel, edad y objetivos de cada persona.</p>
-        </div>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card">
-          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento para acné" loading="lazy" />
-          <div class="service-content">
-            <div class="service-top"><h3>Acné e impurezas</h3></div>
-            <p>Tratamientos orientados a limpiar profundamente la piel, regular el exceso de sebo y reducir la aparición de granos e inflamación.</p>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento manchas" loading="lazy" />
-          <div class="service-content">
-            <div class="service-top"><h3>Manchas y melasmas</h3></div>
-            <p>Protocolos despigmentantes que ayudan a mejorar el tono irregular de la piel y devolver luminosidad al rostro.</p>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1200&q=80" alt="Tratamiento antiedad" loading="lazy" />
-          <div class="service-content">
-            <div class="service-top"><h3>Envejecimiento cutáneo</h3></div>
-            <p>Tratamientos enfocados en mejorar firmeza, textura y luminosidad de la piel para reducir signos visibles de la edad.</p>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -482,8 +1237,8 @@
           <div class="price-item"><span>Peelings químicos + luz LED</span><span>35€</span></div>
           <div class="price-item"><span>Eliminación de verrugas y lunares (unidad)</span><span>20€ / 1</span></div>
           <div class="price-item"><span>Eliminación de verrugas y lunares por zona</span><span>100€ - 120€ / zona</span></div>
-          <div class="price-item"><span>Microneedling facial, capilar y corporal</span><span>40€</span></div>
           <div class="price-item"><span>Limpieza facial profunda + LED</span><span>30€</span></div>
+          <div class="price-item"><span>Dermapen / Microneedling</span><span>40€</span></div>
           <div class="price-item"><span>Tratamiento para acné</span><span>35€</span></div>
           <div class="price-item"><span>Exfoliaciones químicas</span><span>35€</span></div>
           <div class="price-item"><span>Microdermabración + luz LED</span><span>30€</span></div>
@@ -494,6 +1249,154 @@
           <div class="price-item"><span>Tratamiento para manchas y melasmas</span><span>35€</span></div>
           <div class="price-item"><span>Tratamiento para cicatrices de acné</span><span>40€</span></div>
           <div class="price-item"><span>Tratamiento para cicatrices quirúrgicas</span><span>35€</span></div>
+          <div class="price-item"><span>Acupuntura</span><span>Desde 35€</span></div>
+          <div class="price-item"><span>Activación de Barras de Access Consciousness</span><span>Consultar</span></div>
+          <div class="price-item"><span>Constelaciones familiares</span><span>Consultar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reserva">
+    <div class="container">
+      <div class="section-head">
+        <div class="intro">
+          <span class="tag">Reserva tu cita</span>
+          <h2>Agenda tu cita de forma más sencilla</h2>
+          <p>Completa este formulario y al enviarlo se abrirá WhatsApp Business con tu solicitud ya preparada para enviarla directamente a Bienestar y Belleza Aribel.</p>
+        </div>
+      </div>
+
+      <div class="booking-wrap">
+        <div class="booking-card">
+          <h3>Formulario de solicitud de cita</h3>
+          <p>Déjanos tus datos, el servicio que necesitas y una breve descripción para poder orientarte mejor y confirmar tu cita con mayor rapidez.</p>
+
+          <form id="bookingForm" class="booking-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre del cliente</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+              </div>
+
+              <div class="field">
+                <label for="apellido">Apellido</label>
+                <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" required>
+              </div>
+
+              <div class="field">
+                <label for="movil">Número móvil</label>
+                <input id="movil" name="movil" type="tel" placeholder="Tu número de móvil" required>
+              </div>
+
+              <div class="field">
+                <label for="correo">Correo electrónico <span class="form-note">(opcional)</span></label>
+                <input id="correo" name="correo" type="email" placeholder="Tu correo electrónico">
+              </div>
+            </div>
+
+            <div class="field full">
+              <label>Escoge el servicio que necesitas</label>
+
+              <div class="service-groups">
+                <div class="service-group estetica">
+                  <h4>Estética facial y cuidado de la piel</h4>
+                  <div class="service-options">
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Peeling químico">
+                      <span>Peeling químico</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Eliminación de verrugas y lunares">
+                      <span>Eliminación de verrugas y lunares</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Limpieza facial profunda">
+                      <span>Limpieza facial profunda</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Dermapen">
+                      <span>Dermapen</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Tratamiento para acné manchas y cicatrices en cara y espalda">
+                      <span>Tratamiento para acné, manchas y cicatrices en cara y espalda</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="service-group holistica">
+                  <h4>Terapias holísticas</h4>
+                  <div class="service-options">
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Acupuntura">
+                      <span>Acupuntura</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Activación de Barras de Access Consciousness">
+                      <span>Activación de Barras de Access Consciousness</span>
+                    </label>
+                    <label class="check-option">
+                      <input type="checkbox" name="servicio" value="Constelaciones familiares">
+                      <span>Constelaciones familiares</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="otroServicio">Otro servicio</label>
+              <input id="otroServicio" name="otroServicio" type="text" placeholder="Escribe aquí si necesitas otro servicio">
+            </div>
+
+            <div class="field full">
+              <label for="descripcion">Descripción</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Explica con más exactitud lo que necesitas, lo que tienes o la zona a tratar"></textarea>
+            </div>
+
+            <div class="field full urgency-box">
+              <label>Tipo de urgencia</label>
+              <div class="urgency-chips">
+                <label><input type="radio" name="urgencia" value="Baja" required> Baja</label>
+                <label><input type="radio" name="urgencia" value="Media"> Media</label>
+                <label><input type="radio" name="urgencia" value="Alta"> Alta</label>
+                <label><input type="radio" name="urgencia" value="Lo antes posible"> Lo antes posible</label>
+              </div>
+            </div>
+
+            <div class="consent-box full">
+              <input id="consentimiento" type="checkbox" required>
+              <label for="consentimiento">
+                Acepto la entrega y tratamiento de mis datos para que Bienestar y Belleza Aribel pueda contactar conmigo en relación con mi solicitud de cita.
+              </label>
+            </div>
+
+            <div class="booking-submit full">
+              <button class="btn primary" type="submit">Enviar solicitud por WhatsApp</button>
+              <span class="form-note">Se abrirá WhatsApp Business con tu solicitud ya redactada para el número +34 614 13 29 98.</span>
+            </div>
+          </form>
+        </div>
+
+        <div class="booking-side">
+          <h3>¿Cómo funciona?</h3>
+          <p>Rellena tus datos, selecciona el servicio que necesitas y cuéntanos tu caso. Tu solicitud se convertirá en un mensaje estructurado para WhatsApp, listo para enviar y confirmar disponibilidad.</p>
+
+          <ul>
+            <li>Indica el tratamiento o terapia que te interesa.</li>
+            <li>Describe tu caso con el mayor detalle posible.</li>
+            <li>Marca el nivel de urgencia para priorizar mejor la cita.</li>
+            <li>Te responderemos por WhatsApp para confirmar día y hora.</li>
+          </ul>
+
+          <div class="cta-band" style="margin-top:22px;">
+            <div>
+              <h3>Atención rápida y cercana</h3>
+              <p>También puedes escribirnos directamente por WhatsApp si prefieres reservar de forma manual.</p>
+            </div>
+            <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Ir a WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -512,13 +1415,13 @@
       <div class="about-grid">
         <div class="about-card">
           <h3>Bienestar y Belleza Aribel</h3>
-          <p>En Bienestar y Belleza Aribel trabajamos con tratamientos faciales y protocolos orientados a mejorar textura, luminosidad, hidratación, acné, manchas, cicatrices y otros desequilibrios cutáneos.</p>
+          <p>Trabajamos con tratamientos faciales y protocolos orientados a mejorar textura, luminosidad, hidratación, acné, manchas, cicatrices y otros desequilibrios cutáneos.</p>
           <p>Nuestro objetivo es que cada cliente reciba una experiencia cómoda, profesional y personalizada, con una atención cercana desde la primera consulta hasta la recomendación del tratamiento más adecuado.</p>
 
           <div class="about-list">
             <div><span>✨</span><span><b>Enfoque personalizado</b><br>Valoración según objetivo estético y necesidades cutáneas.</span></div>
             <div><span>🧴</span><span><b>Tratamientos faciales actuales</b><br>Protocolos orientados a limpieza, renovación y regeneración.</span></div>
-            <div><span>💖</span><span><b>Experiencia cuidada</b><br>Imagen más moderna, cercana y pensada para convertir visitas en reservas.</span></div>
+            <div><span>💖</span><span><b>Experiencia cuidada</b><br>Atención cercana y pensada para convertir visitas en reservas.</span></div>
           </div>
         </div>
 
@@ -574,8 +1477,8 @@
       </div>
 
       <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn primary" href="https://www.google.com/search?sca_esv=5e11387e8a170f54&cs=1&sxsrf=ANbL-n5jRcea_uP1qkGgJ9W88weJRV_rJw:1772826178118&q=Bienestar+y+Belleza+Milagro+Rese%C3%B1as&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDOzNDM0NjYzNzc3Mjc2BbI3MDK-YlRxykzNSy0uSSxSqFRwSs3JSa1KVPDNzElML8pXCEotTj28MbF4EStRygBVbMlcaAAAAA&rldimm=8669613367772735613&tbm=lcl&hl=es-ES&sa=X&ved=2ahUKEwiYvuCUhIyTAxW_RKQEHQMyBccQ9fQKegQIEhAG&biw=1920&bih=945&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Ver todas las reseñas</a>
-        <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar una reseña</a>
+        <a class="btn primary" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Ver reseñas</a>
+        <a class="btn soft" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar una reseña</a>
       </div>
     </div>
   </section>
@@ -605,7 +1508,7 @@
         </article>
         <article class="faq-item">
           <h3>¿Puedo pedir información antes de reservar?</h3>
-          <p>Sí. Puedes consultarnos por teléfono o WhatsApp y resolver dudas sobre acné, manchas, limpieza facial, LED, microneedling o acupuntura antes de reservar.</p>
+          <p>Sí. Puedes consultarnos por teléfono o WhatsApp y resolver dudas sobre acné, manchas, limpieza facial, Dermapen, LED, acupuntura o terapias holísticas antes de reservar.</p>
         </article>
       </div>
 
@@ -660,8 +1563,8 @@
 
           <div class="contact-actions">
             <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reservar ahora</a>
-            <a class="btn" href="tel:+34614132998">Llamar</a>
-            <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar reseña</a>
+            <a class="btn soft" href="tel:+34614132998">Llamar</a>
+            <a class="btn soft" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar reseña</a>
           </div>
         </div>
 
@@ -697,5 +1600,65 @@
   >
     WhatsApp
   </a>
+
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const movil = document.getElementById("movil").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const otroServicio = document.getElementById("otroServicio").value.trim();
+      const descripcion = document.getElementById("descripcion").value.trim();
+      const consentimiento = document.getElementById("consentimiento").checked;
+      const urgenciaSeleccionada = document.querySelector('input[name="urgencia"]:checked');
+
+      if(!consentimiento){
+        alert("Debes aceptar el tratamiento de tus datos para continuar.");
+        return;
+      }
+
+      if(!urgenciaSeleccionada){
+        alert("Selecciona el tipo de urgencia.");
+        return;
+      }
+
+      const servicios = [];
+      document.querySelectorAll('input[name="servicio"]:checked').forEach((item) => {
+        servicios.push(item.value);
+      });
+
+      const urgencia = urgenciaSeleccionada.value;
+
+      let listaServicios = servicios.length ? servicios.join(", ") : "No seleccionado";
+      if(otroServicio){
+        listaServicios += servicios.length ? ", Otro: " + otroServicio : "Otro: " + otroServicio;
+      }
+
+      const mensaje =
+`Hola, quiero reservar una cita en Bienestar y Belleza Aribel
+
+📌 Datos del cliente
+Nombre: ${nombre}
+Apellido: ${apellido}
+Número móvil: ${movil}
+Correo electrónico: ${correo || "No indicado"}
+
+💆 Servicio solicitado
+${listaServicios}
+
+📝 Descripción del caso
+${descripcion || "No indicada"}
+
+⚡ Tipo de urgencia
+${urgencia}
+
+✅ Acepta la entrega de sus datos: Sí`;
+
+      const url = "https://wa.me/34614132998?text=" + encodeURIComponent(mensaje);
+      window.open(url, "_blank");
+    });
+  </script>
 </body>
 </html>
