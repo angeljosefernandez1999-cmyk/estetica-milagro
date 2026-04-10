@@ -175,10 +175,18 @@
       0%{left:-135%}
       55%,100%{left:165%}
     }
+    @keyframes reserveShineReverse{
+      0%{right:-135%}
+      55%,100%{right:165%}
+    }
     @keyframes reserveGradient{
       0%{background-position:0% 50%}
       50%{background-position:100% 50%}
       100%{background-position:0% 50%}
+    }
+    @keyframes reserveAura{
+      0%,100%{box-shadow:0 18px 36px rgba(176,0,116,.28), 0 0 0 rgba(255,74,172,0)}
+      50%{box-shadow:0 26px 52px rgba(176,0,116,.42), 0 0 24px rgba(255,74,172,.32)}
     }
     a.btn.primary[href="#reserva"],
     .nav a.cta[href="#reserva"]{
@@ -186,7 +194,10 @@
       overflow:hidden;
       background:linear-gradient(120deg,#ff4aac 0%, #cb0a8a 45%, #9b0068 100%);
       background-size:220% 220%;
-      animation:reservePulse 2.3s ease-in-out infinite, reserveGradient 4.2s linear infinite;
+      animation:
+        reservePulse 2.1s ease-in-out infinite,
+        reserveGradient 3.8s linear infinite,
+        reserveAura 2s ease-in-out infinite;
     }
     a.btn.primary[href="#reserva"]::before,
     .nav a.cta[href="#reserva"]::before{
@@ -198,8 +209,23 @@
       height:140%;
       transform:skewX(-22deg);
       background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
-      animation:reserveShine 2.8s ease-in-out infinite;
+      animation:reserveShine 1.9s ease-in-out infinite;
       pointer-events:none;
+    }
+    a.btn.primary[href="#reserva"]::after,
+    .nav a.cta[href="#reserva"]::after{
+      content:"";
+      position:absolute;
+      top:-20%;
+      right:-135%;
+      width:46%;
+      height:140%;
+      transform:skewX(22deg);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+      animation:reserveShineReverse 2.1s ease-in-out infinite;
+      pointer-events:none;
+      display:block;
+      opacity:.9;
     }
     a.btn.primary[href="#reserva"]:hover,
     .nav a.cta[href="#reserva"]:hover{
