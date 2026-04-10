@@ -379,27 +379,50 @@
       .hero-grid,.about-grid,.contact-wrap,.highlight-band,.faq-grid{grid-template-columns:1fr}
       .hero h1{font-size:48px;max-width:none}
       .hero p{font-size:18px}
+      .hero-actions{gap:10px}
       .hero-points{grid-template-columns:1fr}
       .gallery-grid{grid-template-columns:1fr 1fr}
       .gallery-item.tall{grid-row:auto;min-height:280px}
       .price-list{grid-template-columns:1fr}
       .price-item:nth-child(odd){border-right:none}
+      .price-item{padding:14px 18px}
+      .price-item span:last-child{font-size:15px}
     }
     @media (max-width:700px){
       .form-grid,.urgency-chips{grid-template-columns:1fr}
       .service-options{grid-template-columns:1fr}
       .check-option{grid-template-columns:18px 1fr}
+      .booking-card,.booking-side,.contact-card,.map-card,.about-card{padding:22px}
+      .field input,.field select,.field textarea{padding:13px 14px}
+      .urgency-chips label{min-height:52px;padding:12px 10px}
     }
     @media (max-width:640px){
-      .header-inner{align-items:flex-start;flex-direction:column}
-      .nav{justify-content:flex-start}
+      .header-inner{align-items:flex-start;flex-direction:column;gap:10px}
+      .nav{
+        justify-content:flex-start;
+        width:100%;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding-bottom:4px;
+        scrollbar-width:none;
+      }
+      .nav::-webkit-scrollbar{display:none}
+      .nav a{white-space:nowrap;flex:0 0 auto;padding:10px 12px}
       .services-grid,.reviews-grid,.gallery-grid,.faq-grid,.benefits-grid{grid-template-columns:1fr}
       .contact-actions,.hero-actions{flex-direction:column;align-items:stretch}
       .btn{width:100%}
       .booking-submit .btn.primary{min-width:0}
       .brand-logo{width:68px;height:68px;border-radius:18px}
       .brand-text strong{font-size:26px}
-      .section-head h2{font-size:42px}
+      .section-head h2{font-size:36px}
+      .hero{padding:42px 0 28px}
+      .hero h1{font-size:40px;line-height:.98}
+      .hero p{font-size:16px;line-height:1.65}
+      .point{padding:18px 16px;border-radius:20px}
+      .point strong{font-size:21px}
+      .service-card img{height:200px}
+      .section-head{margin-bottom:20px}
+      section{padding:56px 0}
       .hero-visual img{height:auto}
       #opiniones .reviews-grid{
         display:grid;
@@ -407,6 +430,27 @@
         overflow:visible;
       }
       .review{flex:initial}
+      .review{padding:18px}
+      .review:hover{transform:rotate(1.2deg) translateY(-2px)}
+      .wa-float{
+        right:12px;
+        left:12px;
+        bottom:12px;
+        justify-content:center;
+        padding:13px 16px;
+        font-size:15px;
+      }
+      .footer-row{padding-bottom:72px}
+    }
+    @media (max-width:480px){
+      .container{padding:0 14px}
+      .brand-text strong{font-size:23px}
+      .section-head h2{font-size:32px}
+      .hero h1{font-size:34px}
+      .hero-actions .btn,.contact-actions .btn{min-height:50px}
+      .price-panel,.booking-card,.booking-side,.contact-card,.map-card,.about-card{border-radius:24px}
+      .info-item{padding:12px 13px}
+      .faq-item{padding:18px}
     }
   </style>
 
