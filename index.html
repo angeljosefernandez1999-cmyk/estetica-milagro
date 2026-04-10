@@ -266,9 +266,27 @@
     .reviews-cta-top,.reviews-cta-bottom{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .reviews-cta-top{margin-bottom:24px}
     .reviews-cta-bottom{margin-top:26px}
-    .reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-    .review{padding:24px;transition:transform .25s ease, box-shadow .25s ease;border:1px solid rgba(176,0,116,.12)}
-    .review:hover{transform:rotate(1deg) translateY(-4px);box-shadow:0 24px 36px rgba(95,19,66,.14)}
+    #opiniones .reviews-grid{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding-bottom:10px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    #opiniones .reviews-grid::-webkit-scrollbar{height:8px}
+    #opiniones .reviews-grid::-webkit-scrollbar-thumb{
+      background:rgba(176,0,116,.25);
+      border-radius:999px;
+    }
+    .review{
+      flex:0 0 min(520px,86vw);
+      scroll-snap-align:start;
+      padding:24px;
+      transition:transform .25s ease, box-shadow .25s ease;
+      border:1px solid rgba(176,0,116,.12)
+    }
+    .review:hover{transform:rotate(2.8deg) translateY(-4px);box-shadow:0 24px 36px rgba(95,19,66,.14)}
     .review-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:12px}
     .review-meta strong{display:block;color:#301722;font-size:17px}
     .review-meta span{color:#7b6672;font-size:13px}
@@ -383,6 +401,12 @@
       .brand-text strong{font-size:26px}
       .section-head h2{font-size:42px}
       .hero-visual img{height:auto}
+      #opiniones .reviews-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        overflow:visible;
+      }
+      .review{flex:initial}
     }
   </style>
 
