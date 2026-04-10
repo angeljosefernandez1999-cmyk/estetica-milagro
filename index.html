@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#b00074" />
   <title>Bienestar y Belleza Aribel | Estética facial y bienestar en Barcelona</title>
   <meta name="description" content="Centro de estética facial y bienestar en Barcelona. Tratamientos para acné, manchas, rosácea, microneedling, limpieza facial profunda, LED y acupuntura." />
   <link rel="icon" type="image/png" href="img/logo.png" />
@@ -32,6 +33,12 @@
 
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
+    .skip-link{
+      position:absolute;left:12px;top:-48px;z-index:200;
+      background:#2f1621;color:#fff;padding:10px 14px;border-radius:12px;
+      font-weight:700;transition:top .2s ease;
+    }
+    .skip-link:focus{top:12px}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
@@ -43,6 +50,10 @@
     }
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
+    a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+      outline:3px solid rgba(176,0,116,.35);
+      outline-offset:2px;
+    }
     .container{max-width:var(--max);margin:auto;padding:0 20px}
     section{padding:88px 0;position:relative}
     section[id]{scroll-margin-top:100px}
@@ -141,6 +152,15 @@
       0%,15%{left:-130%}
       45%,100%{left:160%}
     }
+    .hero-cta{
+      min-height:58px;
+      font-size:18px;
+      letter-spacing:-.02em;
+      box-shadow:0 20px 40px rgba(176,0,116,.30);
+      opacity:1 !important;
+      visibility:visible !important;
+    }
+    .hero-cta::after{display:none}
     .hero-points{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .point{
       background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-radius:24px;padding:22px 18px;
@@ -230,7 +250,7 @@
     .price-category.holistica h4{background:rgba(23,106,93,.10);color:#176a5d}
     .price-category .price-item:first-of-type{border-top:none}
     .price-item{
-      display:flex;justify-content:space-between;gap:16px;padding:16px 24px;border-top:1px solid rgba(151,39,103,.10);
+      display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 24px;border-top:1px solid rgba(151,39,103,.10);
     }
     .price-item:nth-child(odd){border-right:none}
     .price-item span:first-child{color:#341722;font-weight:600}
@@ -422,6 +442,7 @@
       .hero{padding:42px 0 28px}
       .hero h1{font-size:40px;line-height:.98}
       .hero p{font-size:16px;line-height:1.65}
+      .hero-cta{font-size:20px;min-height:60px}
       .point{padding:18px 16px;border-radius:20px}
       .point strong{font-size:21px}
       .service-card img{height:200px}
@@ -456,6 +477,13 @@
       .info-item{padding:12px 13px}
       .faq-item{padding:18px}
     }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        animation:none !important;
+        transition:none !important;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -475,6 +503,7 @@
   </script>
 </head>
 <body>
+  <a href="#inicio" class="skip-link">Saltar al contenido</a>
   <header class="header">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
@@ -508,7 +537,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
+          <a class="btn primary bounce hero-cta" href="#reserva">Reserva tu cita</a>
           <a class="btn" href="#tarifas">Ver tratamientos</a>
         </div>
 
@@ -681,22 +710,22 @@
             <div class="form-grid">
               <div class="field">
                 <label for="nombre">Nombre del cliente</label>
-                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" autocomplete="given-name" required>
               </div>
 
               <div class="field">
                 <label for="apellido">Apellido</label>
-                <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" required>
+                <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" autocomplete="family-name" required>
               </div>
 
               <div class="field">
                 <label for="movil">Número móvil</label>
-                <input id="movil" name="movil" type="tel" placeholder="Tu número de móvil" required>
+                <input id="movil" name="movil" type="tel" placeholder="Tu número de móvil" autocomplete="tel" inputmode="tel" required>
               </div>
 
               <div class="field">
                 <label for="correo">Correo electrónico <span class="form-note">(opcional)</span></label>
-                <input id="correo" name="correo" type="email" placeholder="Tu correo electrónico">
+                <input id="correo" name="correo" type="email" placeholder="Tu correo electrónico" autocomplete="email" inputmode="email">
               </div>
             </div>
 
@@ -766,13 +795,6 @@
             <li>Marca la urgencia para priorizar tu solicitud.</li>
             <li>Te responderemos por WhatsApp para cerrar fecha y hora.</li>
           </ul>
-          <div class="cta-band" style="margin-top:22px;">
-            <div>
-              <h3>Atención rápida y cercana</h3>
-              <p>Si lo prefieres, también puedes escribirnos directamente por WhatsApp para reservar de forma manual.</p>
-            </div>
-            <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
-          </div>
         </div>
       </div>
     </div>
@@ -1076,6 +1098,10 @@
       });
 
       const urgencia = urgenciaSeleccionada.value;
+      if(!servicios.length && !otroServicio){
+        alert("Selecciona al menos un servicio o escribe uno en 'Otro servicio'.");
+        return;
+      }
       let listaServicios = servicios.length ? servicios.join(", ") : "No seleccionado";
       if(otroServicio){
         listaServicios += servicios.length ? ", Otro: " + otroServicio : "Otro: " + otroServicio;
