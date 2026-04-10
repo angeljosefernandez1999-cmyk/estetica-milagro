@@ -160,7 +160,7 @@
       opacity:1 !important;
       visibility:visible !important;
     }
-    .hero-cta::after{display:none}
+    .hero-cta::after{display:block}
     @keyframes reservePulse{
       0%,100%{
         transform:translateY(0) scale(1);
@@ -175,11 +175,18 @@
       0%{left:-135%}
       55%,100%{left:165%}
     }
+    @keyframes reserveGradient{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
     a.btn.primary[href="#reserva"],
     .nav a.cta[href="#reserva"]{
       position:relative;
       overflow:hidden;
-      animation:reservePulse 2.3s ease-in-out infinite;
+      background:linear-gradient(120deg,#ff4aac 0%, #cb0a8a 45%, #9b0068 100%);
+      background-size:220% 220%;
+      animation:reservePulse 2.3s ease-in-out infinite, reserveGradient 4.2s linear infinite;
     }
     a.btn.primary[href="#reserva"]::before,
     .nav a.cta[href="#reserva"]::before{
@@ -197,7 +204,7 @@
     a.btn.primary[href="#reserva"]:hover,
     .nav a.cta[href="#reserva"]:hover{
       transform:translateY(-3px) scale(1.05);
-      box-shadow:0 30px 56px rgba(176,0,116,.44);
+      box-shadow:0 30px 56px rgba(176,0,116,.44), 0 0 32px rgba(255,74,172,.38);
     }
     @media (min-width:921px){
       a.btn.primary[href="#reserva"]{
@@ -561,6 +568,18 @@
       *,*::before,*::after{
         animation:none !important;
         transition:none !important;
+      }
+      a.btn.primary[href="#reserva"],
+      .nav a.cta[href="#reserva"]{
+        box-shadow:0 20px 42px rgba(176,0,116,.34), 0 0 24px rgba(255,74,172,.30) !important;
+        filter:saturate(1.08) brightness(1.04);
+      }
+      a.btn.primary[href="#reserva"]::before,
+      a.btn.primary[href="#reserva"]::after,
+      .nav a.cta[href="#reserva"]::before,
+      .nav a.cta[href="#reserva"]::after{
+        left:22% !important;
+        opacity:.8 !important;
       }
     }
   </style>
