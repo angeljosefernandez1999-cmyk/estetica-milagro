@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -114,7 +114,7 @@
     }
     .hero p{max-width:560px;font-size:21px;line-height:1.75;color:#6f5d67;margin-bottom:0}
     .hero-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid transparent;background:#fff;transition:transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;box-shadow:var(--shadow-soft);cursor:pointer;min-height:54px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid transparent;background:#fff;transition:transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;box-shadow:var(--shadow-soft);cursor:pointer;min-height:54px;position:relative;overflow:hidden;isolation:isolate}
     .btn:hover{transform:translateY(-2px);filter:brightness(1.02)}
     .btn:active{transform:translateY(0)}
     .btn.primary{
@@ -122,6 +122,25 @@
       box-shadow:0 18px 36px rgba(176,0,116,.24);
     }
     .btn:not(.primary){background:linear-gradient(180deg,#ffffff,#fff7fb);color:#2f1e27;border:1px solid rgba(176,0,116,.12);box-shadow:0 10px 22px rgba(95,19,66,.08)}
+    .btn.primary::after,.bounce::after{
+      content:"";position:absolute;inset:-20% auto -20% -130%;width:58%;
+      transform:skewX(-22deg);
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+      animation:ctaShine 3.8s ease-in-out infinite;
+      pointer-events:none;
+    }
+    .bounce{animation:ctaBounce 2.8s ease-in-out infinite}
+    .bounce:hover{animation-play-state:paused}
+    @keyframes ctaBounce{
+      0%,100%{transform:translateY(0)}
+      40%{transform:translateY(-3px)}
+      55%{transform:translateY(0)}
+      72%{transform:translateY(-1.5px)}
+    }
+    @keyframes ctaShine{
+      0%,15%{left:-130%}
+      45%,100%{left:160%}
+    }
     .hero-points{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .point{
       background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-radius:24px;padding:22px 18px;
@@ -204,11 +223,16 @@
       background:linear-gradient(180deg, rgba(255,242,248,.9), #fff);
     }
     .price-panel-head h3{font-size:26px;color:var(--brand-3)}
-    .price-list{display:grid;grid-template-columns:1fr 1fr}
+    .price-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:8px 16px 18px}
+    .price-category{border:1px solid rgba(151,39,103,.12);border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#fff,#fff9fc)}
+    .price-category h4{padding:14px 18px;font-size:15px;text-transform:uppercase;letter-spacing:.08em}
+    .price-category.facial h4{background:rgba(176,0,116,.08);color:#7d0057}
+    .price-category.holistica h4{background:rgba(23,106,93,.10);color:#176a5d}
+    .price-category .price-item:first-of-type{border-top:none}
     .price-item{
       display:flex;justify-content:space-between;gap:16px;padding:16px 24px;border-top:1px solid rgba(151,39,103,.10);
     }
-    .price-item:nth-child(odd){border-right:1px solid rgba(151,39,103,.10)}
+    .price-item:nth-child(odd){border-right:none}
     .price-item span:first-child{color:#341722;font-weight:600}
     .price-item span:last-child{color:var(--brand);font-weight:800;white-space:nowrap}
 
@@ -238,6 +262,21 @@
     .cta-band h3{font-size:28px;line-height:1.05;margin-bottom:8px}
 
     .review{padding:22px}
+    #opiniones{background:linear-gradient(180deg,#fff8fb 0%,#ffffff 100%)}
+    .reviews-cta-top,.reviews-cta-bottom{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .reviews-cta-top{margin-bottom:24px}
+    .reviews-cta-bottom{margin-top:26px}
+    .reviews-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .review{padding:24px;transition:transform .25s ease, box-shadow .25s ease;border:1px solid rgba(176,0,116,.12)}
+    .review:hover{transform:rotate(1deg) translateY(-4px);box-shadow:0 24px 36px rgba(95,19,66,.14)}
+    .review-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:12px}
+    .review-meta strong{display:block;color:#301722;font-size:17px}
+    .review-meta span{color:#7b6672;font-size:13px}
+    .badge-verified{font-size:12px;font-weight:800;color:#176a5d;background:rgba(23,106,93,.12);padding:8px 10px;border-radius:999px;white-space:nowrap}
+    .review-text{color:#4b3a44;margin-bottom:12px}
+    .review-count{font-size:13px;font-weight:700;color:var(--brand);margin-bottom:14px}
+    .owner-reply{border-top:1px dashed rgba(176,0,116,.18);padding-top:12px;background:linear-gradient(180deg,#fff,#fff9fc);border-radius:14px;padding:12px}
+    .owner-reply b{color:#7d0057;display:block;margin-bottom:6px}
     .stars{letter-spacing:3px;color:#f6a700;font-size:17px;margin-bottom:12px}
     .review strong{color:var(--brand-3)}
 
@@ -263,11 +302,13 @@
     .service-group.holistica{background:rgba(245,251,250,.95)}
     .service-group.holistica h4{background:linear-gradient(135deg,#2f9f8f,#176a5d)}
     .service-group.holistica .check-option input{accent-color:#176a5d}
-    .service-options{display:grid;gap:10px}
+    .service-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
     .service-group.estetica .check-option{border-color:rgba(176,0,116,.10)}
     .service-group.holistica .check-option{border-color:rgba(23,106,93,.14)}
-    .check-option{display:grid;grid-template-columns:18px 1fr;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:#fff;border:1px solid rgba(176,0,116,.08);min-height:56px}
+    .check-option{display:grid;grid-template-columns:20px 1fr;align-items:center;gap:12px;padding:13px 14px;border-radius:16px;background:#fff;border:1px solid rgba(176,0,116,.08);min-height:60px;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+    .check-option:hover{border-color:rgba(176,0,116,.24);box-shadow:0 10px 20px rgba(95,19,66,.08);transform:translateY(-1px)}
     .check-option input{margin:0;align-self:center;width:18px;height:18px;accent-color:var(--brand)}
+    .urgency-chips input{margin:0;width:17px;height:17px;accent-color:var(--brand)}
     .check-option span{color:#493844;font-size:14px;line-height:1.45;display:block}
     .consent-box{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:18px;background:linear-gradient(180deg,#fff,#fff7fb);border:1px solid rgba(176,0,116,.10)}
     .form-note{color:var(--muted);font-size:13px}
@@ -380,7 +421,7 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#galeria">Galería</a>
         <a href="#opiniones">Opiniones</a>
-        <a class="cta" href="#contacto">Reservar cita</a>
+        <a class="cta bounce" href="#reserva">Reserva tu cita</a>
       </nav>
     </div>
   </header>
@@ -395,7 +436,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reserva tu cita por WhatsApp</a>
+          <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
           <a class="btn" href="#tarifas">Ver tratamientos</a>
         </div>
 
@@ -519,25 +560,31 @@
           </div>
         </div>
 
-        <div class="price-list">
-          <div class="price-item"><span>Peelings químicos + luz LED</span><span>35€</span></div>
-          <div class="price-item"><span>Eliminación de verrugas y lunares (unidad)</span><span>20€ / 1</span></div>
-          <div class="price-item"><span>Eliminación de verrugas y lunares por zona</span><span>100€ - 120€ / zona</span></div>
-          <div class="price-item"><span>Microneedling facial, capilar y corporal</span><span>40€</span></div>
-          <div class="price-item"><span>Limpieza facial profunda + LED</span><span>30€</span></div>
-          <div class="price-item"><span>Tratamiento para acné</span><span>35€</span></div>
-          <div class="price-item"><span>Exfoliaciones químicas</span><span>35€</span></div>
-          <div class="price-item"><span>Microdermabración + luz LED</span><span>30€</span></div>
-          <div class="price-item"><span>Facial básico</span><span>30€</span></div>
-          <div class="price-item"><span>Facial antiedad</span><span>35€</span></div>
-          <div class="price-item"><span>Facial para rosácea</span><span>35€</span></div>
-          <div class="price-item"><span>Tratamiento con fototerapia LED</span><span>25€</span></div>
-          <div class="price-item"><span>Tratamiento para manchas y melasmas</span><span>35€</span></div>
-          <div class="price-item"><span>Tratamiento para cicatrices de acné</span><span>40€</span></div>
-          <div class="price-item"><span>Tratamiento para cicatrices quirúrgicas</span><span>35€</span></div>
-          <div class="price-item"><span>Acupuntura</span><span>Desde 35€</span></div>
-          <div class="price-item"><span>Activación de Barras de Access Consciousness</span><span>Consultar</span></div>
-          <div class="price-item"><span>Constelaciones familiares</span><span>Consultar</span></div>
+                <div class="price-list">
+          <div class="price-category facial">
+            <h4>Estética facial</h4>
+            <div class="price-item"><span>Peelings químicos + luz LED</span><span>35€</span></div>
+            <div class="price-item"><span>Eliminación de verrugas y lunares (unidad)</span><span>20€ / 1</span></div>
+            <div class="price-item"><span>Eliminación de verrugas y lunares por zona</span><span>100€ - 120€ / zona</span></div>
+            <div class="price-item"><span>Microneedling facial, capilar y corporal</span><span>40€</span></div>
+            <div class="price-item"><span>Limpieza facial profunda + LED</span><span>30€</span></div>
+            <div class="price-item"><span>Tratamiento para acné</span><span>35€</span></div>
+            <div class="price-item"><span>Exfoliaciones químicas</span><span>35€</span></div>
+            <div class="price-item"><span>Microdermabración + luz LED</span><span>30€</span></div>
+            <div class="price-item"><span>Facial básico</span><span>30€</span></div>
+            <div class="price-item"><span>Facial antiedad</span><span>35€</span></div>
+            <div class="price-item"><span>Facial para rosácea</span><span>35€</span></div>
+            <div class="price-item"><span>Tratamiento con fototerapia LED</span><span>25€</span></div>
+            <div class="price-item"><span>Tratamiento para manchas y melasmas</span><span>35€</span></div>
+            <div class="price-item"><span>Tratamiento para cicatrices de acné</span><span>40€</span></div>
+            <div class="price-item"><span>Tratamiento para cicatrices quirúrgicas</span><span>35€</span></div>
+          </div>
+          <div class="price-category holistica">
+            <h4>Terapias holísticas</h4>
+            <div class="price-item"><span>Acupuntura</span><span>Desde 35€</span></div>
+            <div class="price-item"><span>Activación de Barras de Access Consciousness</span><span>Consultar</span></div>
+            <div class="price-item"><span>Constelaciones familiares</span><span>Consultar</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -548,15 +595,15 @@
       <div class="section-head">
         <div class="intro">
           <span class="tag">Reserva tu cita</span>
-          <h2>Agenda tu cita de forma más sencilla</h2>
-          <p>Completa este formulario y al enviarlo se abrirá WhatsApp Business con tu solicitud ya preparada para enviarla directamente a Bienestar y Belleza Aribel.</p>
+          <h2>Agenda tu cita de forma rápida y clara</h2>
+          <p>Completa el formulario en menos de un minuto y te abriremos WhatsApp Business con tu solicitud lista para enviar a Bienestar y Belleza Aribel.</p>
         </div>
       </div>
 
       <div class="booking-wrap">
         <div class="booking-card">
-          <h3>Formulario de solicitud de cita</h3>
-          <p>Déjanos tus datos, el servicio que necesitas y una breve descripción para poder orientarte mejor y confirmar tu cita con mayor rapidez.</p>
+          <h3>Formulario de reserva</h3>
+          <p>Cuéntanos qué necesitas y te orientaremos de forma personalizada para confirmar tu cita lo antes posible.</p>
 
           <form id="bookingForm" class="booking-form">
             <div class="form-grid">
@@ -582,7 +629,7 @@
             </div>
 
             <div class="field full">
-              <label>Escoge el servicio que necesitas</label>
+              <label>Selecciona el servicio que te interesa</label>
               <div class="service-groups">
                 <div class="service-group estetica">
                   <h4>Estética facial y cuidado de la piel</h4>
@@ -607,13 +654,13 @@
             </div>
 
             <div class="field full">
-              <label for="otroServicio">Otro servicio</label>
-              <input id="otroServicio" name="otroServicio" type="text" placeholder="Escribe aquí si necesitas otro servicio">
+              <label for="otroServicio">Otro servicio (opcional)</label>
+              <input id="otroServicio" name="otroServicio" type="text" placeholder="Escribe aquí si deseas añadir otro servicio">
             </div>
 
             <div class="field full">
-              <label for="descripcion">Descripción</label>
-              <textarea id="descripcion" name="descripcion" placeholder="Explica con más exactitud lo que necesitas, lo que tienes o la zona a tratar"></textarea>
+              <label for="descripcion">Descripción de tu caso</label>
+              <textarea id="descripcion" name="descripcion" placeholder="Cuéntanos qué te gustaría tratar, síntomas, tiempo de evolución o zona a trabajar"></textarea>
             </div>
 
             <div class="field full urgency-box">
@@ -628,31 +675,31 @@
 
             <div class="consent-box full">
               <input id="consentimiento" type="checkbox" required>
-              <label for="consentimiento">Acepto la entrega y tratamiento de mis datos para que Bienestar y Belleza Aribel pueda contactar conmigo en relación con mi solicitud de cita.</label>
+              <label for="consentimiento">Acepto el tratamiento de mis datos para que Bienestar y Belleza Aribel pueda contactarme sobre mi solicitud de cita.</label>
             </div>
 
             <div class="booking-submit full">
-              <button class="btn primary" type="submit">Enviar solicitud por WhatsApp</button>
-              <span class="form-note">Se abrirá WhatsApp Business con tu solicitud ya redactada para el número +34 614 13 29 98.</span>
+              <button class="btn primary" type="submit">Enviar reserva por WhatsApp</button>
+              <span class="form-note">Al enviar, se abrirá WhatsApp Business con el mensaje listo para el +34 614 13 29 98.</span>
             </div>
           </form>
         </div>
 
         <div class="booking-side">
           <h3>¿Cómo funciona?</h3>
-          <p>Rellena tus datos, selecciona el servicio que necesitas y cuéntanos tu caso. Tu solicitud se convertirá en un mensaje estructurado para WhatsApp, listo para enviar y confirmar disponibilidad.</p>
+          <p>Rellena tus datos, elige tu tratamiento y describe tu caso. Generaremos un mensaje claro para WhatsApp y así podremos confirmar disponibilidad contigo más rápido.</p>
           <ul>
-            <li>Indica el tratamiento o terapia que te interesa.</li>
-            <li>Describe tu caso con el mayor detalle posible.</li>
-            <li>Marca el nivel de urgencia para priorizar mejor la cita.</li>
-            <li>Te responderemos por WhatsApp para confirmar día y hora.</li>
+            <li>Selecciona el tratamiento o terapia que deseas.</li>
+            <li>Añade una breve descripción para orientarte mejor.</li>
+            <li>Marca la urgencia para priorizar tu solicitud.</li>
+            <li>Te responderemos por WhatsApp para cerrar fecha y hora.</li>
           </ul>
           <div class="cta-band" style="margin-top:22px;">
             <div>
               <h3>Atención rápida y cercana</h3>
-              <p>También puedes escribirnos directamente por WhatsApp si prefieres reservar de forma manual.</p>
+              <p>Si lo prefieres, también puedes escribirnos directamente por WhatsApp para reservar de forma manual.</p>
             </div>
-            <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Ir a WhatsApp</a>
+            <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
           </div>
         </div>
       </div>
@@ -709,33 +756,106 @@
     </div>
   </section>
 
-  <section id="opiniones">
+    <section id="opiniones">
     <div class="container">
       <div class="section-head">
         <div class="intro">
           <span class="tag">Opiniones</span>
-          <h2>Opiniones reales de nuestras clientas</h2>
-          <p>Las opiniones de nuestras clientas reflejan la experiencia real de quienes ya han confiado en Bienestar y Belleza Aribel. Puedes consultar más valoraciones en nuestra ficha de Google.</p>
+          <h2>Reseñas reales que inspiran confianza</h2>
+          <p>La confianza de nuestras clientas es nuestro mayor aval. Estas opiniones son públicas y puedes verificarlas directamente en Google.</p>
         </div>
       </div>
 
+      <div class="reviews-cta-top">
+        <a class="btn primary bounce" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">⭐ Dejar reseña</a>
+        <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Ver más opiniones en Google</a>
+      </div>
+
       <div class="reviews-grid">
-        <article class="review" style="grid-column: span 2;">
-          <div class="stars">★★★★★</div>
-          <p>“Excelente experiencia en Bienestar y Belleza Aribel. Aribel es una gran profesional en acupuntura para dolores de espalda y cuello. Desde las primeras sesiones sentí alivio y mayor bienestar. El ambiente es muy relajante y transmite mucha confianza. Totalmente recomendado.”</p>
-          <strong>Cliente satisfecha · Reseña en Google</strong>
+        <article class="review">
+          <div class="review-head">
+            <div class="review-meta">
+              <strong>Tania Rodriguez</strong>
+              <span>3 reseñas · 1 foto · hace 4 días · Nueva</span>
+            </div>
+            <span class="badge-verified">✅ Verificada</span>
+          </div>
+          <p class="review-text">La atención me pareció excelente y el tratamiento fue muy efectivo. Sin duda, volveré pronto.</p>
+          <div class="review-count">1</div>
+          <div class="owner-reply">
+            <b>Bienestar y Belleza Aribel (propietario) · hace 3 días</b>
+            <p>Gracias Tania, la satisfacción de nuestros clientes es nuestro objetivo. Te esperamos en este, tu espacio, para que continúes disfrutando de nuestros servicios.</p>
+          </div>
         </article>
 
         <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>Puedes consultar más valoraciones en Google y descubrir la experiencia de otras personas que ya han confiado en nuestros tratamientos.</p>
-          <strong>Opiniones verificadas</strong>
+          <div class="review-head">
+            <div class="review-meta">
+              <strong>Andrea Fernández</strong>
+              <span>Local Guide · 16 reseñas · 2 fotos · Hace una semana · Nueva</span>
+            </div>
+            <span class="badge-verified">✅ Verificada</span>
+          </div>
+          <p class="review-text">Es la mejor. He recibido limpieza facial, terapia y acupuntura. Una experiencia de 10 en todos los aspectos.</p>
+          <div class="review-count">1</div>
+          <div class="owner-reply">
+            <b>Bienestar y Belleza Aribel (propietario) · Hace una semana</b>
+            <p>Andrea, es un placer atenderte siempre y estamos encantados al leer cómo ha sido tu experiencia. Te esperamos.</p>
+          </div>
+        </article>
+
+        <article class="review">
+          <div class="review-head">
+            <div class="review-meta">
+              <strong>Maria Julia Sánchez</strong>
+              <span>3 reseñas · 1 foto · Hace una semana · Nueva</span>
+            </div>
+            <span class="badge-verified">✅ Verificada</span>
+          </div>
+          <p class="review-text">Aribel es una excelente profesional. Me sentí divinamente en su espacio y en sus manos mi rostro quedó espectacular. La recomiendo ampliamente.</p>
+          <div class="review-count">❤️🙏2</div>
+          <div class="owner-reply">
+            <b>Bienestar y Belleza Aribel (propietario) · Hace una semana</b>
+            <p>Muchas gracias, Maria Julia. Ha sido un placer atenderte y será un gusto enorme recibirte nuevamente.</p>
+          </div>
+        </article>
+
+        <article class="review">
+          <div class="review-head">
+            <div class="review-meta">
+              <strong>Alex G</strong>
+              <span>5 reseñas · Hace un mes</span>
+            </div>
+            <span class="badge-verified">✅ Verificada</span>
+          </div>
+          <p class="review-text">Tratamientos muy efectivos. Realicé sesiones para el acné y me propuso un plan muy eficaz. Aribel es una excelente profesional, la recomiendo totalmente.</p>
+          <div class="review-count">❤️🙏3</div>
+          <div class="owner-reply">
+            <b>Bienestar y Belleza Aribel (propietario) · Hace una semana</b>
+            <p>Muchas gracias, Alexis. Nos encantan los resultados obtenidos en tu caso y recuerda que siempre es un gusto atenderte.</p>
+          </div>
+        </article>
+
+        <article class="review">
+          <div class="review-head">
+            <div class="review-meta">
+              <strong>Angel Fernandez</strong>
+              <span>Local Guide · 11 reseñas · 2 fotos · Hace 2 meses</span>
+            </div>
+            <span class="badge-verified">✅ Verificada</span>
+          </div>
+          <p class="review-text">Excelente experiencia en Bienestar y Belleza Milagro. Aribel es una gran profesional en acupuntura para dolores de espalda y cuello. Desde las primeras sesiones sentí alivio y mayor bienestar. El ambiente es muy relajante y transmite muchísima confianza. Totalmente recomendado.</p>
+          <div class="review-count">❤️🙏5</div>
+          <div class="owner-reply">
+            <b>Bienestar y Belleza Aribel (propietario) · Hace una semana</b>
+            <p>Muchas gracias, Ángel. Este es tu espacio y deseamos que estés muy bien de salud; recuerda que también tenemos otros servicios para ti.</p>
+          </div>
         </article>
       </div>
 
-      <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn primary" href="https://www.google.com/search?sca_esv=5e11387e8a170f54&cs=1&sxsrf=ANbL-n5jRcea_uP1qkGgJ9W88weJRV_rJw:1772826178118&q=Bienestar+y+Belleza+Milagro+Rese%C3%B1as&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDOzNDM0NjYzNzc3Mjc2BbI3MDK-YlRxykzNSy0uSSxSqFRwSs3JSa1KVPDNzElML8pXCEotTj28MbF4EStRygBVbMlcaAAAAA&rldimm=8669613367772735613&tbm=lcl&hl=es-ES&sa=X&ved=2ahUKEwiYvuCUhIyTAxW_RKQEHQMyBccQ9fQKegQIEhAG&biw=1920&bih=945&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Ver todas las reseñas</a>
-        <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar una reseña</a>
+      <div class="reviews-cta-bottom">
+        <a class="btn primary bounce" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">⭐ Dejar reseña</a>
+        <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Ver más opiniones en Google</a>
       </div>
     </div>
   </section>
@@ -774,7 +894,7 @@
           <h3>¿Tienes dudas o quieres reservar?</h3>
           <p>Escríbenos por WhatsApp y te ayudaremos a elegir el tratamiento más adecuado para tu piel o necesidad.</p>
         </div>
-        <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
       </div>
     </div>
   </section>
@@ -819,7 +939,7 @@
           </div>
 
           <div class="contact-actions">
-            <a class="btn primary" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener">Reservar ahora</a>
+            <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
             <a class="btn" href="tel:+34614132998">Llamar</a>
             <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar reseña</a>
           </div>
@@ -846,9 +966,7 @@
       <span>Bienestar y Belleza Aribel © 2026</span>
       <span>Estética facial, bienestar y reservas por WhatsApp en Barcelona</span>
     </div>
-  </footer>
-
-  <a
+  </footer>  <a
     class="wa-float"
     href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel"
     target="_blank"
@@ -893,22 +1011,22 @@
 
       const mensaje = `Hola, quiero reservar una cita en Bienestar y Belleza Aribel
 
-📌 Datos del cliente
+?? Datos del cliente
 Nombre: ${nombre}
 Apellido: ${apellido}
-Número móvil: ${movil}
-Correo electrónico: ${correo || "No indicado"}
+N�mero m�vil: ${movil}
+Correo electr�nico: ${correo || "No indicado"}
 
-💆 Servicio solicitado
+?? Servicio solicitado
 ${listaServicios}
 
-📝 Descripción del caso
+?? Descripci�n del caso
 ${descripcion || "No indicada"}
 
-⚡ Tipo de urgencia
+? Tipo de urgencia
 ${urgencia}
 
-✅ Acepta la entrega de sus datos: Sí`;
+? Acepta la entrega de sus datos: S�`;
 
       const url = "https://wa.me/34614132998?text=" + encodeURIComponent(mensaje);
       window.open(url, "_blank");
@@ -916,3 +1034,13 @@ ${urgencia}
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
