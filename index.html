@@ -597,6 +597,10 @@
       }
       a.btn.primary[href="#reserva"],
       .nav a.cta[href="#reserva"]{
+        animation:
+          reservePulse 2.1s ease-in-out infinite !important,
+          reserveGradient 3.8s linear infinite !important,
+          reserveAura 2s ease-in-out infinite !important;
         box-shadow:0 20px 42px rgba(176,0,116,.34), 0 0 24px rgba(255,74,172,.30) !important;
         filter:saturate(1.08) brightness(1.04);
       }
@@ -604,8 +608,13 @@
       a.btn.primary[href="#reserva"]::after,
       .nav a.cta[href="#reserva"]::before,
       .nav a.cta[href="#reserva"]::after{
+        animation:reserveShine 1.9s ease-in-out infinite !important;
         left:22% !important;
         opacity:.8 !important;
+      }
+      a.btn.primary[href="#reserva"]::after,
+      .nav a.cta[href="#reserva"]::after{
+        animation:reserveShineReverse 2.1s ease-in-out infinite !important;
       }
     }
   </style>
