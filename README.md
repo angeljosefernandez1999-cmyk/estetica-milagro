@@ -8,4 +8,4 @@ Página web del centro de estética Bienestar y Belleza Milagro.
 - JavaScript
 
 ## Web
-https://angeljosefernandez1999-cmyk.github.io/estetica-milagro/
+https://bienestarybellezaaribel.info/
