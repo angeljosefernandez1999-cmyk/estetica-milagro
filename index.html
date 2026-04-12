@@ -740,6 +740,111 @@
       color:var(--brand-3);
     }
 
+    .reviews-marquee{
+      position:relative;
+      overflow:hidden;
+      width:100%;
+      margin-top:10px;
+      mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .reviews-track{
+      display:flex;
+      gap:18px;
+      width:max-content;
+      animation:reviewsScroll 45s linear infinite;
+    }
+
+    .reviews-marquee:hover .reviews-track{
+      animation-play-state:paused;
+    }
+
+    .review-card-float{
+      width:360px;
+      flex:0 0 auto;
+      padding:22px;
+      border-radius:28px;
+      background:linear-gradient(180deg,#fff,#fff8fb);
+      border:1px solid rgba(176,0,116,.10);
+      box-shadow:0 18px 40px rgba(95,19,66,.08);
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+
+    .review-card-float:hover{
+      transform:translateY(-6px) rotate(-1deg);
+      box-shadow:0 28px 50px rgba(95,19,66,.12);
+    }
+
+    .review-card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .review-card-top strong{
+      display:block;
+      color:var(--brand-3);
+      font-size:18px;
+      line-height:1.15;
+    }
+
+    .review-card-meta{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      margin-top:4px;
+    }
+
+    .review-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(176,0,116,.10);
+      color:#2f1e27;
+      font-size:12px;
+      font-weight:800;
+      box-shadow:0 8px 16px rgba(95,19,66,.06);
+      white-space:nowrap;
+    }
+
+    .review-card-float p{
+      color:#4c3a45;
+      font-size:15px;
+      line-height:1.75;
+    }
+
+    @keyframes reviewsScroll{
+      0%{
+        transform:translateX(0);
+      }
+      100%{
+        transform:translateX(-50%);
+      }
+    }
+
+    @media (max-width:640px){
+      .review-card-float{
+        width:290px;
+        padding:18px;
+        border-radius:22px;
+      }
+
+      .review-card-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .review-badge{
+        margin-top:2px;
+      }
+    }
+
     .booking-wrap{
       display:grid;
       grid-template-columns:1.05fr .95fr;
@@ -1617,29 +1722,139 @@
     <div class="container">
       <div class="section-head">
         <div class="intro">
-          <span class="tag">Opiniones</span>
+          <span class="tag">Reseñas</span>
           <h2>Opiniones reales de nuestras clientas</h2>
-          <p>Las opiniones de nuestras clientas reflejan la experiencia real de quienes ya han confiado en Bienestar y Belleza Aribel. Puedes consultar más valoraciones en nuestra ficha de Google.</p>
+          <p>Algunas de las valoraciones recientes de clientes que ya han confiado en Bienestar y Belleza Aribel.</p>
         </div>
       </div>
 
-      <div class="reviews-grid">
-        <article class="review" style="grid-column: span 2;">
-          <div class="stars">★★★★★</div>
-          <p>“Excelente experiencia en Bienestar y Belleza Aribel. Aribel es una gran profesional en acupuntura para dolores de espalda y cuello. Desde las primeras sesiones sentí alivio y mayor bienestar. El ambiente es muy relajante y transmite mucha confianza. Totalmente recomendado.”</p>
-          <strong>Cliente satisfecha · Reseña en Google</strong>
-        </article>
+      <div class="reviews-marquee">
+        <div class="reviews-track">
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Tania Rodriguez</strong>
+                <div class="review-card-meta">3 reseñas · 1 foto · hace 6 días · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Gracias la atención me pareció genial y el tratamiento efectivo, nos estaremos viendo más seguido.</p>
+          </article>
 
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>Puedes consultar más valoraciones en Google y descubrir la experiencia de otras personas que ya han confiado en nuestros tratamientos.</p>
-          <strong>Opiniones verificadas</strong>
-        </article>
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Andrea Fernández</strong>
+                <div class="review-card-meta">Local Guide · 16 reseñas · 2 fotos · Hace una semana · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Es la mejor. He recibido limpieza facial. Terapia y acupuntura. Experiencia de 10 en todos los aspectos🫂✨</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Maria Julia Sánchez</strong>
+                <div class="review-card-meta">3 reseñas · 1 foto · Hace una semana · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Aribel es una excelente profesional, me sentí divinamente en su espacio y en sus manos mi rostro quedó espectacular. La recomiendo ampliamente.</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Alex G</strong>
+                <div class="review-card-meta">5 reseñas · Hace un mes</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Tratamientos muy efectivos, realice sesiones para el tratamiento de acné y me propuso un tratamiento muy eficaz. Aribel es una excelente profesional, la recomiendo totalmente.</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Angel Fernandez</strong>
+                <div class="review-card-meta">Local Guide · 11 reseñas · 2 fotos · Hace 2 meses</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Excelente experiencia en Bienestar y Belleza Milagro. Aribel es una gran profesional en acupuntura para dolores de espalda y cuello. Desde las primeras sesiones sentí alivio y mayor bienestar. El ambiente es muy relajante y transmite mucha confianza. Totalmente recomendado.</p>
+          </article>
+
+          <!-- duplicado para efecto carrusel continuo -->
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Tania Rodriguez</strong>
+                <div class="review-card-meta">3 reseñas · 1 foto · hace 6 días · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Gracias la atención me pareció genial y el tratamiento efectivo, nos estaremos viendo más seguido.</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Andrea Fernández</strong>
+                <div class="review-card-meta">Local Guide · 16 reseñas · 2 fotos · Hace una semana · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Es la mejor. He recibido limpieza facial. Terapia y acupuntura. Experiencia de 10 en todos los aspectos🫂✨</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Maria Julia Sánchez</strong>
+                <div class="review-card-meta">3 reseñas · 1 foto · Hace una semana · Nueva</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Aribel es una excelente profesional, me sentí divinamente en su espacio y en sus manos mi rostro quedó espectacular. La recomiendo ampliamente.</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Alex G</strong>
+                <div class="review-card-meta">5 reseñas · Hace un mes</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Tratamientos muy efectivos, realice sesiones para el tratamiento de acné y me propuso un tratamiento muy eficaz. Aribel es una excelente profesional, la recomiendo totalmente.</p>
+          </article>
+
+          <article class="review-card-float">
+            <div class="review-card-top">
+              <div>
+                <strong>Angel Fernandez</strong>
+                <div class="review-card-meta">Local Guide · 11 reseñas · 2 fotos · Hace 2 meses</div>
+              </div>
+              <span class="review-badge">✅ Verificada</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>Excelente experiencia en Bienestar y Belleza Milagro. Aribel es una gran profesional en acupuntura para dolores de espalda y cuello. Desde las primeras sesiones sentí alivio y mayor bienestar. El ambiente es muy relajante y transmite mucha confianza. Totalmente recomendado.</p>
+          </article>
+        </div>
       </div>
 
-      <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn primary" href="https://www.google.com/search?sca_esv=5e11387e8a170f54&cs=1&sxsrf=ANbL-n5jRcea_uP1qkGgJ9W88weJRV_rJw:1772826178118&q=Bienestar+y+Belleza+Milagro+Rese%C3%B1as&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDOzNDM0NjYzNzc3Mjc2BbI3MDK-YlRxykzNSy0uSSxSqFRwSs3JSa1KVPDNzElML8pXCEotTj28MbF4EStRygBVbMlcaAAAAA&rldimm=8669613367772735613&tbm=lcl&hl=es-ES&sa=X&ved=2ahUKEwiYvuCUhIyTAxW_RKQEHQMyBccQ9fQKegQIEhAG&biw=1920&bih=945&dpr=1#lkt=LocalPoiReviews" target="_blank" rel="noopener">Ver todas las reseñas</a>
-        <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar una reseña</a>
+      <div style="margin-top:26px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;">
+        <a class="btn primary" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">⭐ Dejar reseña</a>
       </div>
     </div>
   </section>
