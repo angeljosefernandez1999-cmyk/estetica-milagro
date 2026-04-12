@@ -464,7 +464,9 @@
     .form-note{color:var(--muted);font-size:13px}
     .urgency-box{display:grid;gap:10px}
     .urgency-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .urgency-chips label{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:14px 12px;border-radius:18px;background:linear-gradient(180deg,#fff,#fff8fb);border:1px solid rgba(176,0,116,.10);color:#4d3944;font-weight:700;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;box-shadow:0 8px 18px rgba(95,19,66,.05);min-height:56px}
+    .urgency-chips label{display:grid;grid-template-columns:24px 1fr;align-items:center;justify-content:flex-start;gap:10px;text-align:left;padding:14px 14px;border-radius:18px;background:linear-gradient(180deg,#fff,#fff8fb);border:1px solid rgba(176,0,116,.10);color:#4d3944;font-weight:700;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;box-shadow:0 8px 18px rgba(95,19,66,.05);min-height:56px}
+    .urgency-chips label span{line-height:1.3}
+    .urgency-chips label input{justify-self:center}
     .urgency-chips label:hover{transform:translateY(-2px);border-color:rgba(176,0,116,.25);box-shadow:0 14px 26px rgba(95,19,66,.09)}
     .booking-submit{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px;padding-top:4px}
     .booking-submit .form-note{display:block;max-width:460px;line-height:1.5}
@@ -900,10 +902,10 @@
             <div class="field full urgency-box">
               <label>Tipo de urgencia</label>
               <div class="urgency-chips">
-                <label><input type="radio" name="urgencia" value="Baja" required> Baja</label>
-                <label><input type="radio" name="urgencia" value="Media"> Media</label>
-                <label><input type="radio" name="urgencia" value="Alta"> Alta</label>
-                <label><input type="radio" name="urgencia" value="Lo antes posible"> Lo antes posible</label>
+                <label><input type="radio" name="urgencia" value="Baja" required><span>Baja</span></label>
+                <label><input type="radio" name="urgencia" value="Media"><span>Media</span></label>
+                <label><input type="radio" name="urgencia" value="Alta"><span>Alta</span></label>
+                <label><input type="radio" name="urgencia" value="Lo antes posible"><span>Lo antes posible</span></label>
               </div>
             </div>
 
@@ -1242,22 +1244,22 @@
 
       const mensaje = `Hola, quiero reservar una cita en Bienestar y Belleza Aribel
 
-?? Datos del cliente
-Nombre: ${nombre}
-Apellido: ${apellido}
-N�mero m�vil: ${movil}
-Correo electr�nico: ${correo || "No indicado"}
+DATOS DEL CLIENTE
+- Nombre: ${nombre}
+- Apellido: ${apellido}
+- Número móvil: ${movil}
+- Correo electrónico: ${correo || "No indicado"}
 
-?? Servicio solicitado
+SERVICIO SOLICITADO
 ${listaServicios}
 
-?? Descripci�n del caso
+DESCRIPCIÓN DEL CASO
 ${descripcion || "No indicada"}
 
-? Tipo de urgencia
+TIPO DE URGENCIA
 ${urgencia}
 
-? Acepta la entrega de sus datos: S�`;
+Consentimiento de datos: Sí`;
 
       const url = "https://wa.me/34614132998?text=" + encodeURIComponent(mensaje);
       window.open(url, "_blank");
@@ -1265,6 +1267,9 @@ ${urgencia}
   </script>
 </body>
 </html>
+
+
+
 
 
 
