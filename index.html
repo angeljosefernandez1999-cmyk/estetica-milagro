@@ -57,39 +57,93 @@
     .container{max-width:var(--max);margin:auto;padding:0 20px}
     section{padding:88px 0;position:relative}
     section[id]{scroll-margin-top:100px}
-
     .header{
-      position:sticky;top:0;z-index:100;
-      background:rgba(255,250,252,.72);
-      backdrop-filter:blur(16px);
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,250,252,.78);
+      backdrop-filter:blur(18px);
       border-bottom:1px solid var(--line);
+      box-shadow:0 10px 24px rgba(95,19,66,.05);
     }
+
     .header-inner{
-      display:flex;align-items:center;justify-content:space-between;gap:24px;
-      padding:12px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:10px 0;
     }
-    .brand{display:flex;align-items:center;gap:16px;min-width:240px}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:240px;
+    }
+
     .brand-logo{
-      width:82px;height:82px;border-radius:22px;overflow:hidden;
-      background:#fff;box-shadow:var(--shadow-soft);border:1px solid rgba(176,0,116,.10);
-      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      width:74px;
+      height:74px;
+      border-radius:20px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(176,0,116,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
     }
-    .brand-logo img{width:100%;height:100%;object-fit:contain}
+
+    .brand-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
     .brand-text strong{
-      display:block;font-family:"Cormorant Garamond", serif;font-size:34px;line-height:.95;
-      letter-spacing:.2px;color:var(--brand-3);margin-bottom:4px;
+      display:block;
+      font-family:"Cormorant Garamond", serif;
+      font-size:31px;
+      line-height:.95;
+      letter-spacing:.2px;
+      color:var(--brand-3);
+      margin-bottom:2px;
     }
+
     .brand-text span{
-      display:block;color:var(--muted);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
     }
-    .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
     .nav a{
-      padding:10px 14px;border-radius:999px;font-weight:600;font-size:14px;
-      color:rgba(34,21,31,.88);transition:.22s ease;
+      padding:9px 13px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:14px;
+      color:rgba(34,21,31,.88);
+      transition:.22s ease;
     }
-    .nav a:hover{background:rgba(176,0,116,.07);color:var(--brand)}
+
+    .nav a:hover{
+      background:rgba(176,0,116,.07);
+      color:var(--brand);
+    }
     .nav .cta{
-      color:#fff;background:linear-gradient(135deg,var(--brand-2),var(--brand));
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-2),var(--brand));
       box-shadow:0 14px 34px rgba(176,0,116,.22);
     }
 
@@ -125,152 +179,97 @@
     }
     .hero p{max-width:560px;font-size:21px;line-height:1.75;color:#6f5d67;margin-bottom:0}
     .hero-actions{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:-.01em;border:1px solid transparent;background:#fff;transition:transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;box-shadow:var(--shadow-soft);cursor:pointer;min-height:54px;position:relative;overflow:hidden;isolation:isolate}
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.02)}
-    .btn:active{transform:translateY(0)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:15px;
+      letter-spacing:-.01em;
+      border:1px solid transparent;
+      background:#fff;
+      transition:transform .22s ease, box-shadow .22s ease, filter .22s ease, background .22s ease;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+      min-height:54px;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.02);
+    }
+    .btn:active{
+      transform:translateY(0);
+    }
     .btn.primary{
-      color:#fff;border:none;background:linear-gradient(135deg,var(--brand-2),var(--brand));
+      color:#fff;
+      border:none;
+      background:linear-gradient(135deg,var(--brand-2),var(--brand));
       box-shadow:0 18px 36px rgba(176,0,116,.24);
     }
-    .btn:not(.primary){background:linear-gradient(180deg,#ffffff,#fff7fb);color:#2f1e27;border:1px solid rgba(176,0,116,.12);box-shadow:0 10px 22px rgba(95,19,66,.08)}
-    .btn.primary::after,.bounce::after{
-      content:"";position:absolute;inset:-20% auto -20% -130%;width:58%;
-      transform:skewX(-22deg);
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
-      animation:ctaShine 3.8s ease-in-out infinite;
-      pointer-events:none;
+    .btn:not(.primary){
+      background:linear-gradient(180deg,#ffffff,#fff7fb);
+      color:#2f1e27;
+      border:1px solid rgba(176,0,116,.12);
+      box-shadow:0 10px 22px rgba(95,19,66,.08);
     }
-    .bounce{animation:ctaBounce 2.8s ease-in-out infinite}
-    .bounce:hover{animation-play-state:paused}
-    @keyframes ctaBounce{
-      0%,100%{transform:translateY(0)}
-      40%{transform:translateY(-3px)}
-      55%{transform:translateY(0)}
-      72%{transform:translateY(-1.5px)}
-    }
-    @keyframes ctaShine{
-      0%,15%{left:-130%}
-      45%,100%{left:160%}
-    }
-    .hero-cta{
-      min-height:58px;
-      font-size:18px;
-      letter-spacing:-.02em;
-      box-shadow:0 20px 40px rgba(176,0,116,.30);
-      opacity:1 !important;
-      visibility:visible !important;
-    }
-    .hero-cta::after{display:block}
-    @keyframes reservePulse{
-      0%,100%{
-        transform:translateY(0) scale(1);
-        box-shadow:0 18px 36px rgba(176,0,116,.28);
-      }
-      50%{
-        transform:translateY(-1px) scale(1.035);
-        box-shadow:0 24px 50px rgba(176,0,116,.38);
-      }
-    }
-    @keyframes reserveShine{
-      0%{left:-135%}
-      55%,100%{left:165%}
-    }
-    @keyframes reserveShineReverse{
-      0%{right:-135%}
-      55%,100%{right:165%}
-    }
-    @keyframes reserveGradient{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-    @keyframes reserveAura{
-      0%,100%{box-shadow:0 18px 36px rgba(176,0,116,.28), 0 0 0 rgba(255,74,172,0)}
-      50%{box-shadow:0 26px 52px rgba(176,0,116,.42), 0 0 24px rgba(255,74,172,.32)}
-    }
-    a.btn.primary[href="#reserva"],
-    .nav a.cta[href="#reserva"]{
+    .reserve-cta,
+    .nav .cta{
       position:relative;
       overflow:hidden;
-      background:linear-gradient(120deg,#ff4aac 0%, #cb0a8a 45%, #9b0068 100%);
-      background-size:220% 220%;
-      animation:
-        reservePulse 2.1s ease-in-out infinite,
-        reserveGradient 3.8s linear infinite,
-        reserveAura 2s ease-in-out infinite;
+      animation:reserveBounce 2.4s ease-in-out infinite;
     }
-    a.btn.primary[href="#reserva"]::before,
-    .nav a.cta[href="#reserva"]::before{
+    .reserve-cta::before,
+    .nav .cta::before{
       content:"";
       position:absolute;
-      top:-20%;
-      left:-135%;
-      width:58%;
-      height:140%;
-      transform:skewX(-22deg);
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
-      animation:reserveShine 1.9s ease-in-out infinite;
+      inset:-35% -30%;
+      background:linear-gradient(
+        120deg,
+        transparent 15%,
+        rgba(255,255,255,.15) 32%,
+        rgba(255,255,255,.42) 50%,
+        rgba(255,255,255,.15) 68%,
+        transparent 85%
+      );
+      transform:translateX(-140%) skewX(-18deg);
+      animation:reserveShine 3.2s linear infinite;
       pointer-events:none;
     }
-    a.btn.primary[href="#reserva"]::after,
-    .nav a.cta[href="#reserva"]::after{
+    .reserve-cta::after,
+    .nav .cta::after{
       content:"";
       position:absolute;
-      top:-20%;
-      right:-135%;
-      width:46%;
-      height:140%;
-      transform:skewX(22deg);
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
-      animation:reserveShineReverse 2.1s ease-in-out infinite;
+      inset:0;
+      border-radius:999px;
+      box-shadow:0 0 0 0 rgba(255,74,172,.28);
+      animation:reserveExpand 2.4s ease-out infinite;
       pointer-events:none;
-      display:block;
-      opacity:.9;
     }
-    a.btn.primary[href="#reserva"]:hover,
-    .nav a.cta[href="#reserva"]:hover{
-      transform:translateY(-3px) scale(1.05);
-      box-shadow:0 30px 56px rgba(176,0,116,.44), 0 0 32px rgba(255,74,172,.38);
+    @keyframes reserveBounce{
+      0%,100%{transform:translateY(0) scale(1);}
+      25%{transform:translateY(-2px) scale(1.015);}
+      50%{transform:translateY(-5px) scale(1.03);}
+      75%{transform:translateY(-2px) scale(1.015);}
     }
-    @media (min-width:921px){
-      a.btn.primary[href="#reserva"]{
-        min-height:62px;
-        padding:16px 34px;
-        font-size:19px;
-        letter-spacing:-.015em;
-        animation-duration:2s;
-        box-shadow:0 24px 46px rgba(176,0,116,.34);
+    @keyframes reserveShine{
+      0%{transform:translateX(-140%) skewX(-18deg);}
+      100%{transform:translateX(140%) skewX(-18deg);}
+    }
+    @keyframes reserveExpand{
+      0%{
+        box-shadow:0 0 0 0 rgba(255,74,172,.28);
+        opacity:.9;
       }
-      a.btn.primary[href="#reserva"]::before{
-        width:52%;
-        animation-duration:2.4s;
+      70%{
+        box-shadow:0 0 0 16px rgba(255,74,172,0);
+        opacity:.15;
       }
-      a.btn.primary[href="#reserva"]::after{
-        display:block !important;
-        width:62%;
-        animation-duration:2.1s;
-        opacity:.95;
-      }
-      a.btn.primary[href="#reserva"]:hover{
-        transform:translateY(-4px) scale(1.08);
-        box-shadow:0 34px 60px rgba(176,0,116,.48);
-      }
-      .hero-cta{
-        min-height:66px;
-        font-size:22px;
-      }
-      .nav a.cta[href="#reserva"]{
-        animation-duration:2.6s;
-        box-shadow:0 18px 36px rgba(176,0,116,.32);
-      }
-      .nav a.cta[href="#reserva"]::after{
-        display:block !important;
-        width:64%;
-        animation-duration:2.2s;
-        opacity:.95;
-      }
-      .nav a.cta[href="#reserva"]:hover{
-        transform:translateY(-3px) scale(1.06);
+      100%{
+        box-shadow:0 0 0 0 rgba(255,74,172,0);
+        opacity:0;
       }
     }
     .hero-points{margin-top:42px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -488,137 +487,226 @@
       border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);background:rgba(255,255,255,.74);
     }
     .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
     .wa-float{
-      position:fixed;right:18px;bottom:18px;z-index:120;display:inline-flex;align-items:center;gap:10px;
-      padding:14px 18px;border-radius:999px;background:var(--ok);color:#fff;font-weight:800;
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:120;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,#29df74,#1db954);
+      color:#fff;
+      font-weight:800;
       box-shadow:0 16px 35px rgba(37,211,102,.30);
+      animation:reserveBounce 2.4s ease-in-out infinite;
     }
+@media (max-width:1100px){
+  .hero-grid,
+  .about-grid,
+  .contact-wrap,
+  .highlight-band{
+    grid-template-columns:1fr;
+  }
 
-    @media (max-width:1100px){
-      .hero-grid,.about-grid,.contact-wrap,.highlight-band{grid-template-columns:1fr}
-      .hero{padding:56px 0 40px}
-      .hero h1{font-size:60px}
-      .hero-visual{justify-content:center}
-      .hero-visual::before{display:none}
-      .hero-visual img{max-width:620px;height:420px}
-      .services-grid,.benefits-grid{grid-template-columns:repeat(2,1fr)}
-      .reviews-grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width:1000px){
-      .booking-wrap{grid-template-columns:1fr}
-    }
-    @media (max-width:920px){
-      section{padding:72px 0}
-      .hero-grid,.about-grid,.contact-wrap,.highlight-band,.faq-grid{grid-template-columns:1fr}
-      .hero h1{font-size:48px;max-width:none}
-      .hero p{font-size:18px}
-      .hero-actions{gap:10px}
-      .hero-points{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:1fr 1fr}
-      .gallery-item.tall{grid-row:auto;min-height:280px}
-      .price-list{grid-template-columns:1fr}
-      .price-item:nth-child(odd){border-right:none}
-      .price-item{padding:14px 18px}
-      .price-item span:last-child{font-size:15px}
-    }
-    @media (max-width:700px){
-      .form-grid,.urgency-chips{grid-template-columns:1fr}
-      .service-options{grid-template-columns:1fr}
-      .check-option{grid-template-columns:18px 1fr}
-      .booking-card,.booking-side,.contact-card,.map-card,.about-card{padding:22px}
-      .field input,.field select,.field textarea{padding:13px 14px}
-      .urgency-chips label{min-height:52px;padding:12px 10px}
-    }
-    @media (max-width:640px){
-      .header-inner{align-items:flex-start;flex-direction:column;gap:10px}
-      .nav{
-        justify-content:flex-start;
-        width:100%;
-        flex-wrap:wrap;
-        overflow:visible;
-        padding-bottom:0;
-        gap:8px;
-      }
-      .nav a{white-space:nowrap;flex:0 0 auto;padding:10px 12px}
-      .nav .cta{
-        width:100%;
-        text-align:center;
-        margin-top:2px;
-      }
-      .services-grid,.reviews-grid,.gallery-grid,.faq-grid,.benefits-grid{grid-template-columns:1fr}
-      .contact-actions,.hero-actions{flex-direction:column;align-items:stretch}
-      .btn{width:100%}
-      .booking-submit .btn.primary{min-width:0}
-      .brand-logo{width:68px;height:68px;border-radius:18px}
-      .brand-text strong{font-size:26px}
-      .section-head h2{font-size:36px}
-      .hero{padding:42px 0 28px}
-      .hero h1{font-size:40px;line-height:.98}
-      .hero p{font-size:16px;line-height:1.65}
-      .hero-cta{font-size:20px;min-height:60px}
-      .point{padding:18px 16px;border-radius:20px}
-      .point strong{font-size:21px}
-      .service-card img{height:200px}
-      .section-head{margin-bottom:20px}
-      section{padding:56px 0}
-      .hero-visual img{height:auto}
-      #opiniones .reviews-grid{
-        display:grid;
-        grid-template-columns:1fr;
-        overflow:visible;
-      }
-      .review{flex:initial}
-      .review{padding:18px}
-      .review:hover{transform:rotate(1.2deg) translateY(-2px)}
-      .wa-float{
-        right:12px;
-        left:12px;
-        bottom:12px;
-        justify-content:center;
-        padding:13px 16px;
-        font-size:15px;
-      }
-      .footer-row{padding-bottom:72px}
-    }
-    @media (max-width:480px){
-      .container{padding:0 14px}
-      .brand-text strong{font-size:23px}
-      .section-head h2{font-size:32px}
-      .hero h1{font-size:34px}
-      .hero-actions .btn,.contact-actions .btn{min-height:50px}
-      .price-panel,.booking-card,.booking-side,.contact-card,.map-card,.about-card{border-radius:24px}
-      .info-item{padding:12px 13px}
-      .faq-item{padding:18px}
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{
-        animation:none !important;
-        transition:none !important;
-      }
-      a.btn.primary[href="#reserva"],
-      .nav a.cta[href="#reserva"]{
-        animation:
-          reservePulse 2.1s ease-in-out infinite !important,
-          reserveGradient 3.8s linear infinite !important,
-          reserveAura 2s ease-in-out infinite !important;
-        box-shadow:0 20px 42px rgba(176,0,116,.34), 0 0 24px rgba(255,74,172,.30) !important;
-        filter:saturate(1.08) brightness(1.04);
-      }
-      a.btn.primary[href="#reserva"]::before,
-      a.btn.primary[href="#reserva"]::after,
-      .nav a.cta[href="#reserva"]::before,
-      .nav a.cta[href="#reserva"]::after{
-        animation:reserveShine 1.9s ease-in-out infinite !important;
-        left:22% !important;
-        opacity:.8 !important;
-      }
-      a.btn.primary[href="#reserva"]::after,
-      .nav a.cta[href="#reserva"]::after{
-        animation:reserveShineReverse 2.1s ease-in-out infinite !important;
-      }
-    }
+  .hero{
+    padding:50px 0 34px;
+  }
+
+  .hero h1{
+    font-size:60px;
+  }
+
+  .hero-visual{
+    justify-content:center;
+  }
+
+  .hero-visual::before{
+    display:none;
+  }
+
+  .hero-visual img{
+    max-width:620px;
+    height:420px;
+  }
+
+  .services-grid,
+  .benefits-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .reviews-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:1000px){
+  .booking-wrap{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:920px){
+  section{
+    padding:64px 0;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .contact-wrap,
+  .highlight-band,
+  .faq-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:42px 0 28px;
+  }
+
+  .hero h1{
+    font-size:46px;
+    max-width:none;
+  }
+
+  .hero p{
+    font-size:17px;
+    line-height:1.7;
+  }
+
+  .hero-points{
+    grid-template-columns:1fr;
+    margin-top:28px;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery-item.tall{
+    grid-row:auto;
+    min-height:280px;
+  }
+
+  .price-list{
+    grid-template-columns:1fr;
+  }
+
+  .price-item:nth-child(odd){
+    border-right:none;
+  }
+}
+
+@media (max-width:700px){
+  .form-grid,
+  .urgency-chips{
+    grid-template-columns:1fr;
+  }
+
+  .service-options{
+    grid-template-columns:1fr;
+  }
+
+  .check-option{
+    grid-template-columns:18px 1fr;
+  }
+}
+
+@media (max-width:640px){
+  .header{
+    background:rgba(255,250,252,.92);
+  }
+
+  .header-inner{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+    padding:8px 0;
+  }
+
+  .brand{
+    gap:10px;
+  }
+
+  .brand-logo{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+  }
+
+  .brand-text strong{
+    font-size:22px;
+    line-height:1;
+  }
+
+  .brand-text span{
+    font-size:10px;
+    letter-spacing:.14em;
+  }
+
+  .nav{
+    justify-content:flex-start;
+    gap:6px;
+  }
+
+  .nav a{
+    padding:8px 10px;
+    font-size:13px;
+  }
+
+  .services-grid,
+  .reviews-grid,
+  .gallery-grid,
+  .faq-grid,
+  .benefits-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-actions,
+  .hero-actions,
+  .booking-submit{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .btn{
+    width:100%;
+    min-height:50px;
+    padding:14px 18px;
+    font-size:14px;
+  }
+
+  .booking-submit .btn.primary{
+    min-width:0;
+  }
+
+  .section-head{
+    margin-bottom:20px;
+  }
+
+  .section-head h2{
+    font-size:38px;
+    line-height:1;
+  }
+
+  .hero-visual img{
+    height:auto;
+    border-radius:26px;
+  }
+
+  .eyebrow{
+    font-size:12px;
+    padding:7px 12px;
+  }
+
+  .wa-float{
+    right:14px;
+    bottom:14px;
+    padding:12px 16px;
+    font-size:14px;
+  }
+}
   </style>
 
   <script type="application/ld+json">
@@ -657,7 +745,7 @@
         <a href="#nosotros">Nosotros</a>
         <a href="#galeria">Galería</a>
         <a href="#opiniones">Opiniones</a>
-        <a class="cta bounce" href="#reserva">Reserva tu cita</a>
+        <a class="cta reserve-cta" href="#reserva">Reservar cita</a>
       </nav>
     </div>
   </header>
@@ -672,7 +760,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary bounce hero-cta" href="#reserva">Reserva tu cita</a>
+          <a class="btn primary reserve-cta" href="#reserva">Reserva tu cita</a>
           <a class="btn" href="#tarifas">Ver tratamientos</a>
         </div>
 
@@ -1123,7 +1211,7 @@
           <h3>¿Tienes dudas o quieres reservar?</h3>
           <p>Escríbenos por WhatsApp y te ayudaremos a elegir el tratamiento más adecuado para tu piel o necesidad.</p>
         </div>
-        <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
+        <a class="btn primary reserve-cta" href="#reserva">Reserva tu cita</a>
       </div>
     </div>
   </section>
@@ -1168,7 +1256,7 @@
           </div>
 
           <div class="contact-actions">
-            <a class="btn primary bounce" href="#reserva">Reserva tu cita</a>
+            <a class="btn primary reserve-cta" href="#reserva">Reserva tu cita</a>
             <a class="btn" href="tel:+34614132998">Llamar</a>
             <a class="btn" href="https://g.page/r/CX1oEqZsp1B4EAE/review" target="_blank" rel="noopener">Dejar reseña</a>
           </div>
@@ -1196,13 +1284,11 @@
       <span>Estética facial, bienestar y reservas por WhatsApp en Barcelona</span>
     </div>
   </footer>  <a
-    class="wa-float"
-    href="https://wa.me/34614132998?text=Hola%2C%20quiero%20reservar%20una%20cita%20en%20Bienestar%20y%20Belleza%20Aribel"
-    target="_blank"
-    rel="noopener"
-    aria-label="Abrir WhatsApp"
+    class="wa-float reserve-cta"
+    href="#reserva"
+    aria-label="Ir al formulario de reserva"
   >
-    WhatsApp
+    Reservar cita
   </a>
   <script>
     document.getElementById("bookingForm")?.addEventListener("submit", function(e){
@@ -1277,6 +1363,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
