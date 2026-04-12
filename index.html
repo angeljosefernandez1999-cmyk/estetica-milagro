@@ -132,6 +132,15 @@
       background:rgba(176,0,116,.07);
       color:var(--brand);
     }
+    .nav .cta{
+      color:#fff !important;
+      background:linear-gradient(135deg,var(--brand-2),var(--brand)) !important;
+      border:0 !important;
+      box-shadow:0 14px 34px rgba(176,0,116,.22) !important;
+      animation:reserveBounce 2.4s ease-in-out infinite;
+      position:relative;
+      overflow:hidden;
+    }
 
     .hero{
       position:relative;
@@ -268,14 +277,38 @@
       box-shadow:0 10px 22px rgba(95,19,66,.08);
     }
 
-    .reserve-cta,
-    .nav .cta{
+    .reserve-cta{
       position:relative;
       overflow:hidden;
       animation:reserveBounce 2.4s ease-in-out infinite;
     }
 
-    .reserve-cta::before,
+    .reserve-cta::before{
+      content:"";
+      position:absolute;
+      inset:-35% -30%;
+      background:linear-gradient(
+        120deg,
+        transparent 15%,
+        rgba(255,255,255,.15) 32%,
+        rgba(255,255,255,.42) 50%,
+        rgba(255,255,255,.15) 68%,
+        transparent 85%
+      );
+      transform:translateX(-140%) skewX(-18deg);
+      animation:reserveShine 3.2s linear infinite;
+      pointer-events:none;
+    }
+
+    .reserve-cta::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:999px;
+      box-shadow:0 0 0 0 rgba(255,74,172,.28);
+      animation:reserveExpand 2.4s ease-out infinite;
+      pointer-events:none;
+    }
     .nav .cta::before{
       content:"";
       position:absolute;
@@ -293,7 +326,6 @@
       pointer-events:none;
     }
 
-    .reserve-cta::after,
     .nav .cta::after{
       content:"";
       position:absolute;
@@ -890,12 +922,12 @@
     }
 
     .urgency-chips label{
-      display:flex;
+      display:grid;
+      grid-template-columns:18px 1fr;
       align-items:center;
-      justify-content:center;
-      gap:8px;
-      text-align:center;
-      padding:14px 12px;
+      gap:10px;
+      text-align:left;
+      padding:14px 14px;
       border-radius:18px;
       background:linear-gradient(180deg,#fff,#fff8fb);
       border:1px solid rgba(176,0,116,.10);
@@ -905,6 +937,12 @@
       transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
       box-shadow:0 8px 18px rgba(95,19,66,.05);
       min-height:56px;
+    }
+    .urgency-chips label input{
+      margin:0;
+      width:18px;
+      height:18px;
+      accent-color:var(--brand);
     }
 
     .urgency-chips label:hover{
@@ -1113,6 +1151,12 @@
 
       .check-option{
         grid-template-columns:18px 1fr;
+      }
+
+      .urgency-chips label{
+        grid-template-columns:18px 1fr;
+        justify-content:flex-start;
+        text-align:left;
       }
     }
 
