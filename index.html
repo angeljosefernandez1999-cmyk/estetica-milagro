@@ -1245,6 +1245,8 @@
       const clean = (text) => (text || "")
         .normalize("NFKD")
         .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[*_~`]/g, "")
+        .replace(/[\r\t]/g, " ")
         .replace(/[^\x20-\x7E\n]/g, "")
         .trim();
 
