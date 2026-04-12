@@ -1242,26 +1242,32 @@
         listaServicios += servicios.length ? ", Otro: " + otroServicio : "Otro: " + otroServicio;
       }
 
+      const clean = (text) => (text || "")
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\x20-\x7E\n]/g, "")
+        .trim();
+
       const mensaje = [
         "Hola, quiero reservar una cita en Bienestar y Belleza Aribel",
         "",
         "DATOS DEL CLIENTE",
-        `- Nombre: ${nombre}`,
-        `- Apellido: ${apellido}`,
-        `- Numero movil: ${movil}`,
-        `- Correo electronico: ${correo || "No indicado"}`,
+        `- Nombre: ${clean(nombre)}`,
+        `- Apellido: ${clean(apellido)}`,
+        `- Numero movil: ${clean(movil)}`,
+        `- Correo electronico: ${clean(correo) || "No indicado"}`,
         "",
         "SERVICIO SOLICITADO",
-        listaServicios,
+        clean(listaServicios),
         "",
         "DESCRIPCION DEL CASO",
-        (descripcion || "No indicada"),
+        clean(descripcion) || "No indicada",
         "",
         "TIPO DE URGENCIA",
-        urgencia,
+        clean(urgencia),
         "",
         "Consentimiento de datos: Si"
-      ].join("\\n");
+      ].join("\n");
 
       const url = "https://wa.me/34614132998?text=" + encodeURIComponent(mensaje);
       window.open(url, "_blank");
