@@ -33,13 +33,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
 
   <script>
     // Tema e idioma antes de pintar, para evitar parpadeos
     (function(){
       var d=document.documentElement, t=null;
-      d.classList.add('js');
+      if('IntersectionObserver' in window){
+        d.classList.add('js');
+        setTimeout(function(){ if(!window.__revealOk) d.classList.remove('js') },2500);
+      }
       try{t=localStorage.getItem('theme')}catch(e){}
       if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
       d.setAttribute('data-theme',t);
@@ -50,7 +53,7 @@
     :root{
       --bg:#faf7f4; --bg-2:#f3ece6; --surface:#ffffff; --surface-2:#fbf8f6;
       --text:#231a1f; --muted:#6a5d64; --line:#ebe2dc; --line-strong:#dccfc7;
-      --brand:#8c1d5e; --brand-soft:#f6eaf0; --gold:#a2804c; --gold-soft:#f1e8da;
+      --brand:#8c1d5e; --brand-soft:#f6eaf0; --gold:#856536; --gold-soft:#f6f0e7;
       --btn:#8c1d5e; --btn-hover:#741649; --on-btn:#ffffff;
       --star:#e0a22e; --ok:#1f7a5a; --err:#c0392b; --err-bg:#fdf1ef;
       --header:rgba(250,247,244,.86);
@@ -63,7 +66,7 @@
       --bg:#141012; --bg-2:#1a1417; --surface:#1f181c; --surface-2:#251d21;
       --text:#f2ebe7; --muted:#b4a7ae; --line:#33292e; --line-strong:#44383e;
       --brand:#e690bf; --brand-soft:#2e1d27; --gold:#d6b47e; --gold-soft:#2c241d;
-      --btn:#b03f7c; --btn-hover:#c24d8c; --on-btn:#ffffff;
+      --btn:#a33872; --btn-hover:#b5447f; --on-btn:#ffffff;
       --err:#ff8a7a; --err-bg:#2c1816;
       --header:rgba(20,16,18,.86);
       --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.22);
@@ -385,6 +388,7 @@
     .fab-book:hover{background:var(--btn-hover)}
     .fab-book .ico{width:22px;height:22px}
     .fab-book.is-hidden{opacity:0;visibility:hidden;transform:translateY(10px)}
+    @media (min-width:721px){.fab-book{display:none}}
     .fab-wa{width:58px;background:#25D366}
     .fab-wa svg{width:30px;height:30px;position:relative;z-index:1}
     .fab-wa::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;animation:waPulse 2.6s ease-out infinite;z-index:0}
@@ -724,10 +728,10 @@
         </div>
 
         <div class="tabs" role="tablist" data-i18n-attr="aria-label:price.tabsAria" aria-label="Categorías de tratamientos">
-          <button class="tab" role="tab" aria-selected="true" data-tab="all" data-i18n="price.tabAll">Todos</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="facial" data-i18n="price.tabFacial">Faciales</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="adv" data-i18n="price.tabAdv">Avanzados</button>
-          <button class="tab" role="tab" aria-selected="false" data-tab="well" data-i18n="price.tabWell">Bienestar</button>
+          <button type="button" class="tab" role="tab" aria-selected="true" data-tab="all" data-i18n="price.tabAll">Todos</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="facial" data-i18n="price.tabFacial">Faciales</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="adv" data-i18n="price.tabAdv">Avanzados</button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-tab="well" data-i18n="price.tabWell">Bienestar</button>
         </div>
 
         <div class="menu">
@@ -780,7 +784,7 @@
         </div>
 
         <div class="reviews">
-          <aside class="card rating reveal">
+          <aside class="card rating reveal" data-i18n-attr="aria-label:rev.asideAria" aria-label="Resumen de valoraciones">
             <div>
               <div class="g-head"><svg aria-hidden="true"><use href="#i-google"/></svg><span data-i18n="rev.gTitle">Reseñas en Google</span></div>
               <div class="score"><strong>5,0</strong>
@@ -819,7 +823,7 @@
                 <svg class="q" aria-hidden="true"><use href="#i-quote"/></svg>
                 <div class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
                 <blockquote lang="es">Tratamientos muy efectivos, realicé sesiones para el tratamiento de acné y me propuso un tratamiento muy eficaz. Aribel es una excelente profesional, la recomiendo totalmente.</blockquote>
-                <footer><span class="avatar" style="background:#a2804c">AG</span><div><strong>Alex G.</strong><small data-i18n="rev.m2">5 reseñas</small></div><svg class="g" aria-hidden="true"><use href="#i-google"/></svg></footer>
+                <footer><span class="avatar" style="background:#856536">AG</span><div><strong>Alex G.</strong><small data-i18n="rev.m2">5 reseñas</small></div><svg class="g" aria-hidden="true"><use href="#i-google"/></svg></footer>
               </article>
               <article class="card review">
                 <svg class="q" aria-hidden="true"><use href="#i-quote"/></svg>
@@ -958,7 +962,7 @@
             </form>
           </div>
 
-          <aside class="card booking-side reveal">
+          <aside class="card booking-side reveal" data-i18n-attr="aria-label:book.asideAria" aria-label="Cómo reservar">
             <h3 data-i18n="book.howT">¿Cómo funciona?</h3>
             <p data-i18n="book.howP">Reservar es rápido y sin compromiso.</p>
             <ol class="steps">
@@ -1091,10 +1095,10 @@
     </div>
   </footer>
 
-  <div class="floats">
+  <aside class="floats" data-i18n-attr="aria-label:float.aria" aria-label="Acciones rápidas">
     <a class="fab fab-book" id="fabBook" href="#reserva" data-i18n-attr="aria-label:float.book" aria-label="Reservar cita"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg><span data-i18n="float.bookTxt">Reservar cita</span></a>
     <a class="fab fab-wa" href="https://wa.me/34614132998?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Bienestar%20y%20Belleza%20Aribel" target="_blank" rel="noopener" data-i18n-attr="aria-label:a11y.wa" aria-label="Contactar por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span class="fab-label" aria-hidden="true" data-i18n="float.wa">Escríbenos por WhatsApp</span></a>
-  </div>
+  </aside>
 
   <!-- COOKIES -->
   <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" data-i18n-attr="aria-label:ck.aria" aria-label="Aviso de cookies">
@@ -1149,12 +1153,28 @@
   </dialog>
 
   <script>
+    // Animación de entrada: script aparte y en ES5 para que un fallo en el resto nunca deje la página en blanco
+    (function(){
+      var els = document.querySelectorAll('.reveal'), i;
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || reduce) {
+        for (i = 0; i < els.length; i++) els[i].classList.add('in');
+      } else {
+        var io = new IntersectionObserver(function(entries){
+          for (var k = 0; k < entries.length; k++) if (entries[k].isIntersecting) { entries[k].target.classList.add('in'); io.unobserve(entries[k].target); }
+        }, { rootMargin:'0px 0px -8% 0px' });
+        for (i = 0; i < els.length; i++) io.observe(els[i]);
+      }
+      window.__revealOk = true;
+    })();
+  </script>
+  <script>
     // ========== TRADUCCIONES (el castellano se toma del propio HTML) ==========
     const I18N = {
       ca: {
         'meta.title':'Estètica facial a Barcelona | Bienestar y Belleza Aribel',
         'meta.desc':'Estètica facial i benestar a Barcelona: acne, taques, rosàcia, microneedling, neteja facial i acupuntura. Atenció personalitzada.',
-        'float.book':'Reservar cita','float.bookTxt':'Reservar cita','float.wa':'Escriu-nos per WhatsApp',
+        'rev.asideAria':'Resum de valoracions','book.asideAria':'Com reservar','float.aria':'Accions ràpides','float.book':'Reservar cita','float.bookTxt':'Reservar cita','float.wa':'Escriu-nos per WhatsApp',
         'a11y.skip':'Saltar al contingut','a11y.nav':'Navegació principal','a11y.lang':'Idioma','a11y.theme':'Canviar entre mode clar i fosc','a11y.menu':'Obrir menú','a11y.wa':'Contactar per WhatsApp','a11y.close':'Tancar','a11y.close2':'Tancar','a11y.close3':'Tancar',
         'nav.treat':'Tractaments','nav.prices':'Tarifes','nav.about':'Sobre mi','nav.reviews':'Opinions','nav.contact':'Contacte','nav.book':'Reservar cita',
         'hero.eyebrow':'Estètica facial i benestar a Barcelona',
@@ -1264,7 +1284,7 @@
       en: {
         'meta.title':'Facial aesthetics in Barcelona | Bienestar y Belleza Aribel',
         'meta.desc':'Facial aesthetics and wellbeing in Barcelona: acne, dark spots, rosacea, microneedling, deep facials and acupuncture. Personalised care.',
-        'float.book':'Book an appointment','float.bookTxt':'Book now','float.wa':'Message us on WhatsApp',
+        'rev.asideAria':'Rating summary','book.asideAria':'How to book','float.aria':'Quick actions','float.book':'Book an appointment','float.bookTxt':'Book now','float.wa':'Message us on WhatsApp',
         'a11y.skip':'Skip to content','a11y.nav':'Main navigation','a11y.lang':'Language','a11y.theme':'Switch between light and dark mode','a11y.menu':'Open menu','a11y.wa':'Contact us on WhatsApp','a11y.close':'Close','a11y.close2':'Close','a11y.close3':'Close',
         'nav.treat':'Treatments','nav.prices':'Prices','nav.about':'About me','nav.reviews':'Reviews','nav.contact':'Contact','nav.book':'Book now',
         'hero.eyebrow':'Facial aesthetics & wellbeing in Barcelona',
@@ -1424,9 +1444,9 @@
         root.dataset.theme = next; store.set('theme', next); syncThemeColor();
       });
       if (window.matchMedia) {
-        matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-          if (!store.get('theme')) { root.dataset.theme = e.matches ? 'dark' : 'light'; syncThemeColor(); }
-        });
+        const mq = matchMedia('(prefers-color-scheme: dark)');
+        const onScheme = e => { if (!store.get('theme')) { root.dataset.theme = e.matches ? 'dark' : 'light'; syncThemeColor(); } };
+        if (mq.addEventListener) mq.addEventListener('change', onScheme); else if (mq.addListener) mq.addListener(onScheme);
       }
       syncThemeColor();
 
@@ -1490,11 +1510,12 @@
         if (opener) {
           e.preventDefault();
           const dlg = document.getElementById(opener.dataset.dialog);
-          if (dlg && typeof dlg.showModal === 'function') dlg.showModal();
+          if (dlg) { if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open',''); }
           return;
         }
-        if (e.target.closest('[data-close]')) e.target.closest('dialog').close();
-        if (e.target.tagName === 'DIALOG') e.target.close();
+        const closeDlg = d => { if (typeof d.close === 'function') d.close(); else d.removeAttribute('open'); };
+        if (e.target.closest('[data-close]')) closeDlg(e.target.closest('dialog'));
+        if (e.target.tagName === 'DIALOG') closeDlg(e.target);
       });
 
       // ---------- Cookies y mapa ----------
@@ -1507,7 +1528,7 @@
         f.referrerPolicy = 'no-referrer-when-downgrade';
         f.title = 'Mapa · Bienestar y Belleza Aribel';
         f.src = 'https://www.google.com/maps?q=V%C3%ADa%20Fav%C3%A8ncia%20112-118%2C%2008016%20Barcelona&output=embed';
-        mapBox.replaceChildren(f);
+        mapBox.innerHTML = ''; mapBox.appendChild(f);
       }
       const consent = store.get('cookie-consent');
       if (consent === 'accepted') loadMap();
@@ -1551,7 +1572,7 @@
       }));
       form.querySelectorAll('[data-prev]').forEach(b => b.addEventListener('click', () => goToStep(b.dataset.prev)));
       form.querySelectorAll('input, textarea').forEach(el => el.addEventListener('input', () => {
-        el.closest('.field')?.classList.remove('has-error'); hideMsg();
+        const fld = el.closest('.field'); if (fld) fld.classList.remove('has-error'); hideMsg();
       }));
 
       form.addEventListener('submit', e => {
@@ -1588,14 +1609,6 @@
         window.location.href = 'https://wa.me/34614132998?text=' + encodeURIComponent(texto);
       });
 
-      // ---------- Animación de entrada ----------
-      const reveals = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window && !reduce) {
-        const io = new IntersectionObserver(entries => entries.forEach(en => {
-          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-        }), { rootMargin:'0px 0px -8% 0px' });
-        reveals.forEach(el => io.observe(el));
-      } else reveals.forEach(el => el.classList.add('in'));
 
       // ---------- Barra de progreso de lectura ----------
       const bar = document.getElementById('scrollBar');
