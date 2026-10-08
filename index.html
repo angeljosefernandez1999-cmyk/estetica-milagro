@@ -1541,13 +1541,15 @@
         f.src = 'https://www.google.com/maps?q=V%C3%ADa%20Fav%C3%A8ncia%20112-118%2C%2008016%20Barcelona&output=embed';
         mapBox.innerHTML = ''; mapBox.appendChild(f);
       }
+      // El botón se enlaza antes de cargar el mapa, porque loadMap() lo elimina
+      const loadMapBtn = document.getElementById('loadMap');
+      if (loadMapBtn) loadMapBtn.addEventListener('click', () => { store.set('cookie-consent','accepted'); banner.classList.remove('show'); loadMap(); });
       const consent = store.get('cookie-consent');
       if (consent === 'accepted') loadMap();
       else if (consent !== 'rejected') banner.classList.add('show');
       document.getElementById('ckAccept').addEventListener('click', () => { store.set('cookie-consent','accepted'); banner.classList.remove('show'); loadMap(); });
       document.getElementById('ckReject').addEventListener('click', () => { store.set('cookie-consent','rejected'); banner.classList.remove('show'); });
       document.getElementById('cookieSettings').addEventListener('click', () => banner.classList.add('show'));
-      document.getElementById('loadMap').addEventListener('click', () => { store.set('cookie-consent','accepted'); banner.classList.remove('show'); loadMap(); });
 
       // ---------- Formulario ----------
       const form = document.getElementById('bookingForm');
