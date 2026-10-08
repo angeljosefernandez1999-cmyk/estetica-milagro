@@ -147,7 +147,10 @@
     .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
     .hero h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(46px,6.4vw,80px);line-height:.98;letter-spacing:-.015em;margin:6px 0 24px}
     .hero h1 em{font-style:italic;color:var(--brand)}
-    .hero .lead{font-size:18.5px;color:var(--muted);max-width:560px}
+    .hero-lead{display:grid;gap:18px;max-width:560px}
+    .hl{padding-left:18px;border-left:2px solid var(--brand)}
+    .hl h2{font-family:Inter,system-ui,sans-serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.35}
+    .hl p{font-size:16.5px;color:var(--muted);line-height:1.65}
     .hero-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
     .stats{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:26px;max-width:560px}
     .stat + .stat{border-left:1px solid var(--line);padding-left:22px}
@@ -601,7 +604,10 @@
         <div class="reveal">
           <span class="tag" data-i18n="hero.eyebrow">Estética facial y bienestar en Barcelona</span>
           <h1 id="hero-title" data-i18n="hero.title">Cuida tu piel.<br>Realza tu <em>belleza</em>.<br>Eleva tu bienestar.</h1>
-          <p class="lead" data-i18n="hero.lead">Tratamientos faciales y terapias de bienestar con protocolos personalizados para mejorar la textura, la luminosidad y la salud de tu piel: acné, manchas, rosácea, cicatrices y signos de la edad.</p>
+          <div class="hero-lead">
+            <div class="hl"><h2 data-i18n="hero.l1t">Acupuntura y terapias holísticas</h2><p data-i18n="hero.l1p">Cuida tu cuerpo y tus emociones con acupuntura y otras terapias naturales. Tú decides hasta dónde quieres llegar; te acompañamos para alcanzar mayor bienestar.</p></div>
+            <div class="hl"><h2 data-i18n="hero.l2t">Tratamientos faciales personalizados</h2><p data-i18n="hero.l2p">Mejoramos la textura, la luminosidad y la salud de tu piel. Tratamos acné, manchas, queratosis seborreica, rosácea, cicatrices y signos físicos de la edad.</p></div>
+          </div>
           <div class="hero-actions">
             <a class="btn primary" href="#reserva"><svg class="ico"><use href="#i-calendar"/></svg><span data-i18n="hero.cta1">Reservar cita</span></a>
             <a class="btn" href="#tarifas"><span data-i18n="hero.cta2">Ver tratamientos y precios</span><svg class="ico"><use href="#i-arrow"/></svg></a>
@@ -1182,7 +1188,8 @@
         'nav.treat':'Tractaments','nav.prices':'Tarifes','nav.about':'Sobre mi','nav.reviews':'Opinions','nav.contact':'Contacte','nav.book':'Reservar cita',
         'hero.eyebrow':'Estètica facial i benestar a Barcelona',
         'hero.title':'Cuida la teva pell.<br>Realça la teva <em>bellesa</em>.<br>Eleva el teu benestar.',
-        'hero.lead':'Tractaments facials i teràpies de benestar amb protocols personalitzats per millorar la textura, la lluminositat i la salut de la teva pell: acne, taques, rosàcia, cicatrius i signes de l\'edat.',
+        'hero.l1t':'Acupuntura i teràpies holístiques','hero.l1p':'Cuida el teu cos i les teves emocions amb acupuntura i altres teràpies naturals. Tu decideixes fins on vols arribar; t\'acompanyem per assolir més benestar.',
+        'hero.l2t':'Tractaments facials personalitzats','hero.l2p':'Millorem la textura, la lluminositat i la salut de la teva pell. Tractem acne, taques, queratosi seborreica, rosàcia, cicatrius i signes físics de l\'edat.',
         'hero.cta1':'Reservar cita','hero.cta2':'Veure tractaments i preus',
         'hero.stat1':'Valoració mitjana a Google','hero.stat2':'Tractaments i teràpies','hero.stat3':'Atenció personalitzada',
         'hero.imgAlt':'Tractament facial professional a Bienestar y Belleza Aribel, Barcelona',
@@ -1292,7 +1299,8 @@
         'nav.treat':'Treatments','nav.prices':'Prices','nav.about':'About me','nav.reviews':'Reviews','nav.contact':'Contact','nav.book':'Book now',
         'hero.eyebrow':'Facial aesthetics & wellbeing in Barcelona',
         'hero.title':'Care for your skin.<br>Enhance your <em>beauty</em>.<br>Elevate your wellbeing.',
-        'hero.lead':'Facial treatments and wellbeing therapies with personalised protocols to improve the texture, radiance and health of your skin: acne, dark spots, rosacea, scars and signs of ageing.',
+        'hero.l1t':'Acupuncture & holistic therapies','hero.l1p':'Care for your body and your emotions with acupuncture and other natural therapies. You decide how far you want to go; we support you to achieve greater wellbeing.',
+        'hero.l2t':'Personalised facial treatments','hero.l2p':'We improve the texture, radiance and health of your skin. We treat acne, dark spots, seborrheic keratosis, rosacea, scars and physical signs of ageing.',
         'hero.cta1':'Book an appointment','hero.cta2':'See treatments & prices',
         'hero.stat1':'Average rating on Google','hero.stat2':'Treatments & therapies','hero.stat3':'One-to-one care',
         'hero.imgAlt':'Professional facial treatment at Bienestar y Belleza Aribel, Barcelona',
