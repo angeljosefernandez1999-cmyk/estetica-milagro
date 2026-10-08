@@ -402,6 +402,7 @@
       .fab-book span{display:none}
       .fab-wa{width:54px}
       .fab-wa .fab-label{display:none}
+      .floats.over-form{opacity:0;visibility:hidden;pointer-events:none}
     }
 
     /* ====== COOKIES ====== */
@@ -472,7 +473,9 @@
       .float-badge{left:12px;bottom:12px}
       .about-photo figcaption{right:12px;bottom:12px}
       .foot-grid{grid-template-columns:1fr}
-      .cookie{left:12px;right:12px;bottom:12px;max-width:none}
+      .cookie{left:12px;right:12px;bottom:12px;max-width:none;padding:14px 16px}
+      .cookie p{font-size:13px;margin-bottom:10px;line-height:1.5}
+      .cookie .btn{min-height:40px;padding:8px 14px}
       .btn{width:100%}
       .form-nav .btn{width:auto;flex:1}
       .stat + .stat{padding-left:14px}
@@ -882,22 +885,22 @@
                 <div class="grid2">
                   <div class="field">
                     <label for="nombre"><span data-i18n="book.name">Nombre</span> <span class="req">*</span></label>
-                    <input id="nombre" name="nombre" type="text" required autocomplete="given-name" data-i18n-attr="placeholder:book.namePh" placeholder="Tu nombre">
+                    <input id="nombre" enterkeyhint="next" name="nombre" type="text" required autocomplete="given-name" data-i18n-attr="placeholder:book.namePh" placeholder="Tu nombre">
                     <span class="err" data-i18n="book.req">Campo obligatorio</span>
                   </div>
                   <div class="field">
                     <label for="apellido"><span data-i18n="book.surname">Apellidos</span> <span class="req">*</span></label>
-                    <input id="apellido" name="apellido" type="text" required autocomplete="family-name" data-i18n-attr="placeholder:book.surnamePh" placeholder="Tus apellidos">
+                    <input id="apellido" enterkeyhint="next" name="apellido" type="text" required autocomplete="family-name" data-i18n-attr="placeholder:book.surnamePh" placeholder="Tus apellidos">
                     <span class="err" data-i18n="book.req2">Campo obligatorio</span>
                   </div>
                   <div class="field">
                     <label for="movil"><span data-i18n="book.phone">Teléfono móvil</span> <span class="req">*</span></label>
-                    <input id="movil" name="movil" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+34 600 000 000">
+                    <input id="movil" enterkeyhint="next" name="movil" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+34 600 000 000">
                     <span class="err" data-i18n="book.phoneErr">Introduce un teléfono válido</span>
                   </div>
                   <div class="field">
                     <label for="correo">Email <span class="opt" data-i18n="book.optional">(opcional)</span></label>
-                    <input id="correo" name="correo" type="email" autocomplete="email" placeholder="tu@email.com">
+                    <input id="correo" enterkeyhint="next" name="correo" type="email" autocomplete="email" placeholder="tu@email.com">
                   </div>
                 </div>
                 <div class="form-nav">
@@ -927,7 +930,7 @@
                 </div>
                 <div class="field">
                   <label for="otroServicio"><span data-i18n="book.other">¿Otro servicio?</span> <span class="opt" data-i18n="book.optional2">(opcional)</span></label>
-                  <input id="otroServicio" name="otroServicio" type="text" data-i18n-attr="placeholder:book.otherPh" placeholder="Escribe aquí si buscas algo concreto">
+                  <input id="otroServicio" enterkeyhint="next" name="otroServicio" type="text" data-i18n-attr="placeholder:book.otherPh" placeholder="Escribe aquí si buscas algo concreto">
                 </div>
                 <div class="field">
                   <label for="descripcion" data-i18n="book.desc">Cuéntanos tu caso</label>
@@ -1545,8 +1548,9 @@
       const msg = document.getElementById('formMsg');
       function showMsg(key){ msg.textContent = t(key); msg.classList.add('show'); }
       function hideMsg(){ msg.classList.remove('show'); }
+      let formStep = 1;
       function goToStep(n){
-        n = +n; hideMsg();
+        n = +n; formStep = n; hideMsg();
         steps.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
         pSteps.forEach(p => {
           const k = +p.dataset.step;
@@ -1566,10 +1570,17 @@
         });
         return ok;
       }
-      form.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => {
-        if (b.dataset.next === '2' && !validateStep1()) return;
-        goToStep(b.dataset.next);
-      }));
+      const hasService = () => !!form.querySelector('input[name="servicio"]:checked') || !!document.getElementById('otroServicio').value.trim();
+      function nextStep(){
+        if (formStep === 1 && !validateStep1()) { showMsg('msg.step1'); return; }
+        if (formStep === 2 && !hasService()) { showMsg('msg.service'); return; }
+        if (formStep < 3) goToStep(formStep + 1);
+      }
+      form.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', nextStep));
+      form.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && formStep < 3 && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') { e.preventDefault(); nextStep(); }
+      });
+      form.querySelectorAll('input[name="servicio"]').forEach(i => i.addEventListener('change', hideMsg));
       form.querySelectorAll('[data-prev]').forEach(b => b.addEventListener('click', () => goToStep(b.dataset.prev)));
       form.querySelectorAll('input, textarea').forEach(el => el.addEventListener('input', () => {
         const fld = el.closest('.field'); if (fld) fld.classList.remove('has-error'); hideMsg();
@@ -1577,6 +1588,7 @@
 
       form.addEventListener('submit', e => {
         e.preventDefault();
+        if (formStep < 3) { nextStep(); return; }
         const v = id => document.getElementById(id).value.trim();
         const servicios = [...form.querySelectorAll('input[name="servicio"]:checked')].map(i => i.value);
         const urg = form.querySelector('input[name="urgencia"]:checked');
@@ -1625,7 +1637,8 @@
       // ---------- Botón flotante de reserva: se oculta sobre el formulario ----------
       const fabBook = document.getElementById('fabBook');
       if ('IntersectionObserver' in window) {
-        new IntersectionObserver(([en]) => fabBook.classList.toggle('is-hidden', en.isIntersecting), { threshold:0.15 })
+        const floats = fabBook.parentElement;
+        new IntersectionObserver(([en]) => { fabBook.classList.toggle('is-hidden', en.isIntersecting); floats.classList.toggle('over-form', en.isIntersecting); }, { threshold:0.15 })
           .observe(document.getElementById('reserva'));
       }
 
